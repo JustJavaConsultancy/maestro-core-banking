@@ -1,0 +1,155 @@
+select {
+  cursor: pointer;
+}
+
+.select {
+  max-width: 524px;
+  height: 69px;
+  background: #ffffff;
+  border: 1px solid #565682;
+  border-radius: 504px;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.filtersection {
+  background-color: #f6f6f9;
+  margin-top: 40px;
+  border-radius: 13px;
+  padding: 33px;
+  max-width: 517px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dateRange,
+.filter-action {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0.3;
+  margin-left: 40px;
+  margin-bottom: 40px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f6f6f9;
+}
+
+@media (max-width: 800px) {
+  .dt {
+    flex-direction: column;
+  }
+  .dateLabel {
+    width: 350px;
+  }
+}
+
+.filter-action {
+  justify-content: center;
+  align-items: center;
+}
+
+.dateLabel {
+  font-size: 14px;
+}
+
+.dateLabel input {
+  cursor: pointer;
+}
+
+.formatprint {
+  width: 168px;
+  height: 50px;
+  background: #ffffff;
+  border: 1px solid #95a0be;
+  border-radius: 8px;
+  // display: flex;
+  //  flex-direction: row;
+  //align-items: center;
+  padding: 14.5px 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.viewreport {
+  background: #565682;
+  //opacity: 0.6;
+  border: 0;
+  color: #fff;
+  border-radius: 32px;
+  padding: 15px 24px;
+  font-size: 12px;
+  margin-left: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.textinput {
+  background: #ffffff;
+  border: 1px solid #95a0be;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 14.5px 16px 14.5px 24px;
+  width: 90%;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+.additional {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height */
+  margin-bottom: 40px;
+  text-align: center;
+
+  /* Purple Navy */
+
+  color: #565682;
+}
+
+.print-source {
+  display: none;
+}
+
+.download-format {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  select {
+    width: 17%;
+    padding: 3px 10px;
+    border: solid 1px #95a0be;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}
+
+.report__download__section {
+  .download-format {
+    select {
+      width: 110%;
+    }
+  }
+
+  button {
+    background: #646b7e;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: #fff;
+  }
+}
+
+.scheme__report__container {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 40px;
+
+  .dateContainer {
+    flex-direction: column;
+  }
+}
+
+@media print {
+  .print-source {
+    display: block;
+  }
+}

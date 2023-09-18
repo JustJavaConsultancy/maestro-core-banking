@@ -1,0 +1,35 @@
+.success-modal {
+  .modal__content.success {
+    padding: 60px 70px;
+    gap: 15px;
+    background: #f2f5fb;
+
+    .modal-body {
+      h3 {
+        margin-bottom: 31px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 31px;
+        color: #3b445a;
+        margin-bottom: 32px;
+        width: 318px;
+      }
+
+      div.md__body__btn {
+        button {
+          border: none;
+          background: #435faa;
+          border-radius: 74.5px;
+          width: 164px;
+          padding: 15px 60px;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 19px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

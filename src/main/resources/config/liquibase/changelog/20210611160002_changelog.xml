@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1623427391584-3">
+        <createTable tableName="my_device">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="my_devicePK"/>
+            </column>
+            <column name="device_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="device_notification_token" type="VARCHAR(255)"/>
+            <column name="last_login_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="profile_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1623427391584-4">
+        <addUniqueConstraint columnNames="device_id" constraintName="UC_MY_DEVICEDEVICE_ID_COL" tableName="my_device"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1623427391584-5">
+        <addUniqueConstraint columnNames="transaction_type_id" constraintName="UK_muswsgteu9ukkb6yf3q5slwo3"
+                             tableName="approval_workflow"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1623427391584-6">
+        <addForeignKeyConstraint baseColumnNames="biller_platform_id" baseTableName="biller_custom_field_option"
+                                 constraintName="FKgc28hreme0j025cbul9gwe3o8" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id"
+                                 referencedTableName="biller_platform" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1623427391584-7">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="my_device"
+                                 constraintName="FKkruk1vj1g1qr9o4anc135lxgp" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1623427391584-1">
+        <alterSequence sequenceName="sequence_generator"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1623427391584-2">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="address_type" tableName="address"/>
+    </changeSet>
+</databaseChangeLog>

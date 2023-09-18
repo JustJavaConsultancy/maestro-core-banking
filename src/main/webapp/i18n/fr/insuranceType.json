@@ -1,0 +1,23 @@
+{
+  "apiGatewayApp": {
+    "insuranceType": {
+      "home": {
+        "title": "InsuranceTypes",
+        "createLabel": "Créer un nouveau Insurance Type",
+        "createOrEditLabel": "Créer ou éditer un Insurance Type",
+        "notFound": "Aucun Insurance Type trouvé"
+      },
+      "created": "Un nouveau Insurance Type a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Insurance Type avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Insurance Type avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Insurance Type {{ id }} ?"
+      },
+      "detail": {
+        "title": "Insurance Type"
+      },
+      "name": "Name",
+      "charge": "Charge"
+    }
+  }
+}

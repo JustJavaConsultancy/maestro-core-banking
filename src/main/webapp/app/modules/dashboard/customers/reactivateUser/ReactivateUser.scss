@@ -1,0 +1,58 @@
+.container__reactivate {
+  margin-bottom: 10px;
+  button {
+    border: none;
+    padding: 10px;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+
+  > div {
+    &:nth-of-type(1) {
+      button {
+        background-color: #3f80c6;
+
+        &:hover {
+          background-color: #035ec0;
+        }
+      }
+    }
+
+    &:nth-of-type(2) {
+      p {
+        color: #3f80c6;
+        font-weight: 600;
+        margin-bottom: 20px;
+        padding: 10px;
+        background: #e1ecf9b7;
+        font-size: 0.7rem;
+      }
+
+      button {
+        margin-right: 25px;
+
+        &:first-of-type {
+          border: solid 2px #db0000;
+          color: red;
+
+          &:hover {
+            background-color: #db0000;
+            color: #fff;
+          }
+        }
+
+        &:last-of-type {
+          background-color: #1ca800;
+          padding: 12px;
+
+          &:hover {
+            background-color: #126702;
+          }
+        }
+      }
+    }
+  }
+}

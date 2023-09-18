@@ -1,0 +1,23 @@
+{
+  "apiGatewayApp": {
+    "approvalGroup": {
+      "home": {
+        "title": "Approval Groups",
+        "createLabel": "Create a new Approval Group",
+        "createOrEditLabel": "Create or edit a Approval Group",
+        "notFound": "No Approval Groups found"
+      },
+      "created": "A new Approval Group is created with identifier {{ param }}",
+      "updated": "A Approval Group is updated with identifier {{ param }}",
+      "deleted": "A Approval Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Approval Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Approval Group"
+      },
+      "name": "Name",
+      "profile": "Profile"
+    }
+  }
+}

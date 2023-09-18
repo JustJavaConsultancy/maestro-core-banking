@@ -1,0 +1,519 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-42">
+        <createTable tableName="kyc_request">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="kyc_requestPK"/>
+            </column>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="current_level" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="approver_id" type="BIGINT"/>
+            <column name="profile_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sender_profile_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-43">
+        <createTable tableName="sweeping_config">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sweeping_configPK"/>
+            </column>
+            <column name="amount" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="destination_account" type="VARCHAR(255)"/>
+            <column name="destination_bank_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="percentage" type="FLOAT8"/>
+            <column name="source_account" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vendor_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-44">
+        <addPrimaryKey columnNames="event_id, name" tableName="jhi_persistent_audit_evt_data"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-45">
+        <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-46">
+        <addPrimaryKey columnNames="id" constraintName="access_itemPK" tableName="access_item"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-47">
+        <addPrimaryKey columnNames="id" constraintName="access_rightPK" tableName="access_right"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-48">
+        <addPrimaryKey columnNames="id" constraintName="addressPK" tableName="address"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-49">
+        <addPrimaryKey columnNames="id" constraintName="agentPK" tableName="agent"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-50">
+        <addPrimaryKey columnNames="id" constraintName="app_updatePK" tableName="app_update"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-51">
+        <addPrimaryKey columnNames="id" constraintName="approval_groupPK" tableName="approval_group"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-52">
+        <addPrimaryKey columnNames="id" constraintName="approval_workflowPK" tableName="approval_workflow"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-53">
+        <addPrimaryKey columnNames="id" constraintName="bankPK" tableName="bank"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-54">
+        <addPrimaryKey columnNames="id" constraintName="beneficiaryPK" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-55">
+        <addPrimaryKey columnNames="id" constraintName="billerPK" tableName="biller"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-56">
+        <addPrimaryKey columnNames="id" constraintName="biller_categoryPK" tableName="biller_category"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-57">
+        <addPrimaryKey columnNames="id" constraintName="biller_custom_field_optionPK" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-58">
+        <addPrimaryKey columnNames="id" constraintName="biller_platformPK" tableName="biller_platform"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-59">
+        <addPrimaryKey columnNames="id" constraintName="biller_service_optionPK" tableName="biller_service_option"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-60">
+        <addPrimaryKey columnNames="id" constraintName="biller_transactionPK" tableName="biller_transaction"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-61">
+        <addPrimaryKey columnNames="id" constraintName="bonus_pointPK" tableName="bonus_point"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-62">
+        <addPrimaryKey columnNames="id" constraintName="contact_usPK" tableName="contact_us"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-63">
+        <addPrimaryKey columnNames="id" constraintName="countrol_accountPK" tableName="countrol_account"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-64">
+        <addPrimaryKey columnNames="id" constraintName="customersubscriptionPK" tableName="customersubscription"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-65">
+        <addPrimaryKey columnNames="id" constraintName="double_entry_loggerPK" tableName="double_entry_logger"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-66">
+        <addPrimaryKey columnNames="id" constraintName="field_drop_downPK" tableName="field_drop_down"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-67">
+        <addPrimaryKey columnNames="id" constraintName="idempotentPK" tableName="idempotent"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-68">
+        <addPrimaryKey columnNames="id" constraintName="insurance_providerPK" tableName="insurance_provider"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-69">
+        <addPrimaryKey columnNames="id" constraintName="insurance_typePK" tableName="insurance_type"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-70">
+        <addPrimaryKey columnNames="id" constraintName="ipg_synch_transactionPK" tableName="ipg_synch_transaction"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-71">
+        <addPrimaryKey columnNames="name" constraintName="jhi_authorityPK" tableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-72">
+        <addPrimaryKey columnNames="event_id" constraintName="jhi_persistent_audit_eventPK" tableName="jhi_persistent_audit_event"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-73">
+        <addPrimaryKey columnNames="id" constraintName="jhi_userPK" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-74">
+        <addPrimaryKey columnNames="id" constraintName="jounalPK" tableName="jounal"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-75">
+        <addPrimaryKey columnNames="id" constraintName="jounal_linePK" tableName="jounal_line"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-76">
+        <addPrimaryKey columnNames="id" constraintName="kyclevelPK" tableName="kyclevel"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-77">
+        <addPrimaryKey columnNames="id" constraintName="lenderPK" tableName="lender"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-78">
+        <addPrimaryKey columnNames="id" constraintName="loanPK" tableName="loan"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-79">
+        <addPrimaryKey columnNames="id" constraintName="my_devicePK" tableName="my_device"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-80">
+        <addPrimaryKey columnNames="id" constraintName="notificationPK" tableName="notification"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-81">
+        <addPrimaryKey columnNames="id" constraintName="payment_transactionPK" tableName="payment_transaction"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-82">
+        <addPrimaryKey columnNames="id" constraintName="profilePK" tableName="profile"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-83">
+        <addPrimaryKey columnNames="id" constraintName="profile_typePK" tableName="profile_type"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-84">
+        <addPrimaryKey columnNames="id" constraintName="requestPK" tableName="request"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-85">
+        <addPrimaryKey columnNames="id" constraintName="right_accessPK" tableName="right_access"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-86">
+        <addPrimaryKey columnNames="id" constraintName="schemePK" tableName="scheme"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-87">
+        <addPrimaryKey columnNames="id" constraintName="scheme_categoryPK" tableName="scheme_category"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-88">
+        <addPrimaryKey columnNames="id" constraintName="super_agentPK" tableName="super_agent"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-89">
+        <addPrimaryKey columnNames="id" constraintName="tellerPK" tableName="teller"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-90">
+        <addPrimaryKey columnNames="id" constraintName="transaction_logPK" tableName="transaction_log"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-91">
+        <addPrimaryKey columnNames="id" constraintName="vehicle_insurance_requestPK" tableName="vehicle_insurance_request"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-92">
+        <addPrimaryKey columnNames="id" constraintName="wallet_accountPK" tableName="wallet_account"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-93">
+        <addPrimaryKey columnNames="id" constraintName="wallet_account_typePK" tableName="wallet_account_type"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-94">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-95">
+        <addUniqueConstraint columnNames="device_id" constraintName="UC_MY_DEVICEDEVICE_ID_COL" tableName="my_device"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-96">
+        <addUniqueConstraint columnNames="agent_id" constraintName="UK_exc4lmq5urgwwdt3vay1aex6x" tableName="super_agent"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-97">
+        <addUniqueConstraint columnNames="profile_id" constraintName="UK_ey2240b1pn1tpbwi64rdy3dxu" tableName="lender"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-98">
+        <addUniqueConstraint columnNames="transaction_type_id" constraintName="UK_muswsgteu9ukkb6yf3q5slwo3" tableName="approval_workflow"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-99">
+        <addUniqueConstraint columnNames="profile_id" constraintName="UK_ny39rnmaqljtc78yp7nt3u5p7" tableName="insurance_provider"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-100">
+        <addUniqueConstraint columnNames="journal_id" constraintName="UK_t2o98kk7yj6kqgi0twk27sq2c" tableName="bonus_point"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-101">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="bonus_point" constraintName="FK1ehegfmnm5uiy8difj6wlk0y4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-102">
+        <addForeignKeyConstraint baseColumnNames="biller_service_option_id" baseTableName="field_drop_down" constraintName="FK1g584p2nct5mqn92ysi98y8q5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_service_option" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-103">
+        <addForeignKeyConstraint baseColumnNames="profile_type_id" baseTableName="profile" constraintName="FK1r59jhe4tfjkttolfk06crq93" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile_type" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-104">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-105">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-106">
+        <addForeignKeyConstraint baseColumnNames="account_owner_id" baseTableName="beneficiary" constraintName="FK2i0wlyre0d49kqd29ftlofutm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-107">
+        <addForeignKeyConstraint baseColumnNames="account_owner_id" baseTableName="wallet_account" constraintName="FK4c0b2fm6r0wevukx95iw2f64x" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-108">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="teller" constraintName="FK4lx6pu3l07nt20csvtaggo59r" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-109">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-110">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="insurance_provider" constraintName="FK5c9r9rnf3g14s0elxnp33dx11" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-111">
+        <addForeignKeyConstraint baseColumnNames="biller_id" baseTableName="biller_platform" constraintName="FK5kcswr5vcbri73mr5tlve0cd3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-112">
+        <addForeignKeyConstraint baseColumnNames="wallet_account_id" baseTableName="jounal_line" constraintName="FK5xoglbb34pk9yi4m6ldwcnf33" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="wallet_account" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-113">
+        <addForeignKeyConstraint baseColumnNames="initiator_id" baseTableName="request" constraintName="FK66h5d9ej6kn7wajxrr10oguft" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="approval_group" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-114">
+        <addForeignKeyConstraint baseColumnNames="agent_id" baseTableName="super_agent" constraintName="FK6kjj601vapp3ouo5hu7j2ykuh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="agent" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-115">
+        <addForeignKeyConstraint baseColumnNames="transaction_type_id" baseTableName="approval_workflow" constraintName="FK6kxywus8rt5t2tf0xs20b6fq2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="right_access" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-116">
+        <addForeignKeyConstraint baseColumnNames="debit_id" baseTableName="double_entry_logger" constraintName="FK6mf10mojprfd500hxq2e83ksx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="countrol_account" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-117">
+        <addForeignKeyConstraint baseColumnNames="assigned_to_id" baseTableName="contact_us" constraintName="FK70ite9piohfge3q8qjtjtejxx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-118">
+        <addForeignKeyConstraint baseColumnNames="address_owner_id" baseTableName="address" constraintName="FK73vp3eyni736p5yl8yl46bihb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-119">
+        <addForeignKeyConstraint baseColumnNames="super_agent_id" baseTableName="agent" constraintName="FK74uqkgjg9ep8wx5vyh5x5lnb6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="agent" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-120">
+        <addForeignKeyConstraint baseColumnNames="sender_id" baseTableName="contact_us" constraintName="FK79whlah61o21vooi7x3hbdbvq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-121">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="loan" constraintName="FK7rbi0aeajb4qanysrcjvij2g3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-122">
+        <addForeignKeyConstraint baseColumnNames="credit_id" baseTableName="double_entry_logger" constraintName="FK808jdj7a2n3r1ouaoheiic0a7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="countrol_account" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-123">
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="wallet_account" constraintName="FK883g3ii8iplo8xdihb800rfd0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="wallet_account" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-124">
+        <addForeignKeyConstraint baseColumnNames="wallet_account_type_id" baseTableName="wallet_account" constraintName="FK9f0frcflw3xl9ifqbv6i0rtc0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="wallet_account_type" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-125">
+        <addForeignKeyConstraint baseColumnNames="insurance_type_id" baseTableName="vehicle_insurance_request" constraintName="FKa7tdgv63r43dxcs0e27ijcvi6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="insurance_type" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-126">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="agent" constraintName="FKaxigi4ctb5yqnlkwukj5na58e" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-127">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="access_right" constraintName="FKbe92nremphp8t0yi4cymcd8hr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-128">
+        <addForeignKeyConstraint baseColumnNames="approver_id" baseTableName="approval_workflow" constraintName="FKc28pj3k8ijbrxa7p8pn2v0so1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="approval_group" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-129">
+        <addForeignKeyConstraint baseColumnNames="scheme_id" baseTableName="super_agent" constraintName="FKcbw1sguoeneencp1fepichsag" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="scheme" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-130">
+        <addForeignKeyConstraint baseColumnNames="approver_id" baseTableName="request" constraintName="FKd7mf9kb3glrjviaul9jd2htp2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="approval_group" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-131">
+        <addForeignKeyConstraint baseColumnNames="lender_id" baseTableName="loan" constraintName="FKeafnasv5lum8xij1goylepmyb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lender" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-132">
+        <addForeignKeyConstraint baseColumnNames="right_id" baseTableName="access_item" constraintName="FKf4jk6j1236hj3rs1vkpj87oxh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="right_access" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-133">
+        <addForeignKeyConstraint baseColumnNames="biller_platform_id" baseTableName="biller_custom_field_option" constraintName="FKgc28hreme0j025cbul9gwe3o8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_platform" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-134">
+        <addForeignKeyConstraint baseColumnNames="initiator_id" baseTableName="approval_workflow" constraintName="FKgfr45sr9jufrveq6dy9mrxko5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="approval_group" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-135">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="profile" constraintName="FKhpks30secbw6ww6sjplw9xtth" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-136">
+        <addForeignKeyConstraint baseColumnNames="scheme_category_id" baseTableName="scheme" constraintName="FKj5mlaaxt3g8gkdkd2y23ydawy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="scheme_category" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-137">
+        <addForeignKeyConstraint baseColumnNames="approval_group_id" baseTableName="profile" constraintName="FKj8fkjjjuhj86f69s470agnel0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="approval_group" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-138">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="kyc_request" constraintName="FKk12qvtnyum5w0od7i09iblw8u" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-139">
+        <addForeignKeyConstraint baseColumnNames="journal_id" baseTableName="bonus_point" constraintName="FKk38e738nebhpi5c05omofhrov" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jounal" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-140">
+        <addForeignKeyConstraint baseColumnNames="transaction_owner_id" baseTableName="payment_transaction" constraintName="FKk4rruvegs3csgj6ahqfulip3p" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-141">
+        <addForeignKeyConstraint baseColumnNames="agent_id" baseTableName="teller" constraintName="FKkh83xurxvsh7mhx9pcgthk9lh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="agent" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-142">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="my_device" constraintName="FKkruk1vj1g1qr9o4anc135lxgp" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-143">
+        <addForeignKeyConstraint baseColumnNames="biller_custom_field_option_id" baseTableName="biller_service_option" constraintName="FKlnob0tanvpym8hyeocoi4ne99" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_custom_field_option" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-144">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="lender" constraintName="FKmge82i5esriateol1rxtw59y0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-145">
+        <addForeignKeyConstraint baseColumnNames="phone_number_id" baseTableName="customersubscription" constraintName="FKmsg0ssg2ip7nl0winl4qtym7e" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-146">
+        <addForeignKeyConstraint baseColumnNames="kyc_id" baseTableName="profile" constraintName="FKnuabxdah40ha5d5lnstag3m4d" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="kyclevel" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-147">
+        <addForeignKeyConstraint baseColumnNames="phone_number_id" baseTableName="biller_transaction" constraintName="FKnusmil6rkxx2jao0yw1fuudb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-148">
+        <addForeignKeyConstraint baseColumnNames="approver_id" baseTableName="kyc_request" constraintName="FKnxo6mhw6w22u5xlicewrsxj0w" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-149">
+        <addForeignKeyConstraint baseColumnNames="biller_id" baseTableName="customersubscription" constraintName="FKokjy6mw2c436lyrd2rppweq3b" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-150">
+        <addForeignKeyConstraint baseColumnNames="scheme_id" baseTableName="wallet_account" constraintName="FKpn5mwvadyukqbfi4rs8apwtc2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="scheme" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-151">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="vehicle_insurance_request" constraintName="FKpsinqrcpj10nts7a19jlsvd02" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-152">
+        <addForeignKeyConstraint baseColumnNames="jounal_id" baseTableName="jounal_line" constraintName="FKq1qkwi3bp726yehudbih8xe5b" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jounal" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-153">
+        <addForeignKeyConstraint baseColumnNames="biller_category_id" baseTableName="biller" constraintName="FKqnvvtep4sk63xu4fbwhkx9af0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_category" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-154">
+        <addForeignKeyConstraint baseColumnNames="sender_profile_id" baseTableName="kyc_request" constraintName="FKs9gntshg93ebv6jyu0qw366xj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-155">
+        <addForeignKeyConstraint baseColumnNames="access_right_id" baseTableName="access_item" constraintName="FKxllupswbeu5n91x8oh3e9i7c" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="access_right" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-156">
+        <dropTable tableName="jounal_id_to_delete"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-157">
+        <dropColumn columnName="has_custom_field_option" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-158">
+        <dropColumn columnName="new_column" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-159">
+        <dropSequence sequenceName="jounal_id_seq"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-160">
+        <dropSequence sequenceName="jounal_line_id_seq"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-1">
+        <alterSequence sequenceName="sequence_generator"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-2">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="account_number" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-3">
+        <addDefaultValue columnDataType="varchar(20)" columnName="actual_balance" defaultValue="HPvehMn1z2mbh3I/fDtskA==" tableName="wallet_account"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-4">
+        <dropNotNullConstraint columnDataType="float8" columnName="amount" tableName="bonus_point"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-5">
+        <dropNotNullConstraint columnDataType="number(19,2)" columnName="amount" tableName="ipg_synch_transaction"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-6">
+        <addNotNullConstraint columnDataType="number(21,2)" columnName="amount" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-7">
+        <addNotNullConstraint columnDataType="bigint" columnName="approver_id" tableName="approval_workflow" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-8">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="bank_code" tableName="bank"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-9">
+        <dropDefaultValue columnDataType="float8" columnName="bonus_amount" tableName="transaction_log"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-10">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="channel" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-11">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="loan" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-12">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-13">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="request" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-14">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="transaction_log" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-15">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="currency" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-16">
+        <dropDefaultValue columnDataType="float8" columnName="current_balance" tableName="jounal_line"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-17">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="current_balance" tableName="wallet_account"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-18">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="destination_account" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-19">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="destination_account_bank_code" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-20">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="destination_narration" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-21">
+        <addNotNullConstraint columnDataType="bigint" columnName="initiator_id" tableName="approval_workflow" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-22">
+        <dropDefaultValue columnDataType="boolean" columnName="is_maker" tableName="access_item"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-23">
+        <dropNotNullConstraint columnDataType="boolean" columnName="is_wallet" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-24">
+        <dropDefaultValue columnDataType="boolean" columnName="is_wallet" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-25">
+        <addNotNullConstraint columnDataType="bigint" columnName="journal_id" tableName="bonus_point" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-26">
+        <dropNotNullConstraint columnDataType="timestamp" columnName="last_login_date" tableName="my_device"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-27">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="name" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-28">
+        <dropNotNullConstraint columnDataType="bigint" columnName="profile_id" tableName="access_right"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-29">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="recipient" tableName="notification" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-30">
+        <dropDefaultValue columnDataType="boolean" columnName="redeem_bonus" tableName="transaction_log"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-31">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_id" tableName="request"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-32">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_ref" tableName="request"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-33">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_type_code" tableName="request"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-34">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="source_account" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-35">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="source_account_bank_code" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-36">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="source_narration" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-37">
+        <addDefaultValue columnDataType="varchar(20)" columnName="status" defaultValue="START" tableName="transaction_log"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-38">
+        <addDefaultValue columnDataType="varchar(20)" columnName="status" defaultValue="ACTIVE" tableName="wallet_account"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-39">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="title" tableName="notification"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-40">
+        <addDefaultValue columnDataType="varchar(20)" columnName="trans_status" defaultValue="OK" tableName="jounal"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1636562151297-41">
+        <addNotNullConstraint columnDataType="bigint" columnName="transaction_type_id" tableName="approval_workflow" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

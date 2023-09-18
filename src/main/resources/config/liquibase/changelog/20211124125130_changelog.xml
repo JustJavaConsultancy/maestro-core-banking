@@ -1,0 +1,153 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-44">
+        <addUniqueConstraint columnNames="phone_number" constraintName="UC_PROFILEPHONE_NUMBER_COL" tableName="profile"/>
+    </changeSet>
+<!--     <changeSet author="EMMANUEL (generated)" id="1637758348516-45">
+        <addForeignKeyConstraint baseColumnNames="biller_platform_id" baseTableName="biller_custom_field_option" constraintName="FKgc28hreme0j025cbul9gwe3o8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_platform" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-46">
+        <dropTable tableName="jounal_id_to_delete"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-47">
+        <dropColumn columnName="has_custom_field_option" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-48">
+        <dropColumn columnName="new_column" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-49">
+        <dropSequence sequenceName="jounal_id_seq"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-50">
+        <dropSequence sequenceName="jounal_line_id_seq"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-1">
+        <alterSequence sequenceName="sequence_generator"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-2">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="account_number" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-3">
+        <addDefaultValue columnDataType="varchar(20)" columnName="actual_balance" defaultValue="HPvehMn1z2mbh3I/fDtskA==" tableName="wallet_account"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-4">
+        <dropNotNullConstraint columnDataType="float8" columnName="amount" tableName="bonus_point"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-5">
+        <dropNotNullConstraint columnDataType="number(19,2)" columnName="amount" tableName="ipg_synch_transaction"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-6">
+        <addNotNullConstraint columnDataType="number(21,2)" columnName="amount" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-7">
+        <addNotNullConstraint columnDataType="bigint" columnName="approver_id" tableName="approval_workflow" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-8">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="bank_code" tableName="bank"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-9">
+        <dropDefaultValue columnDataType="float8" columnName="bonus_amount" tableName="transaction_log"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-10">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="channel" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-11">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="loan" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-12">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-13">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="request" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-14">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="transaction_log" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-15">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="currency" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-16">
+        <dropDefaultValue columnDataType="float8" columnName="current_balance" tableName="jounal_line"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-17">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="current_balance" tableName="wallet_account"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-18">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="destination_account" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-19">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="destination_account_bank_code" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-20">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="destination_narration" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-21">
+        <addNotNullConstraint columnDataType="bigint" columnName="initiator_id" tableName="approval_workflow" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-22">
+        <dropDefaultValue columnDataType="boolean" columnName="is_maker" tableName="access_item"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-23">
+        <dropNotNullConstraint columnDataType="boolean" columnName="is_wallet" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-24">
+        <dropDefaultValue columnDataType="boolean" columnName="is_wallet" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-25">
+        <addNotNullConstraint columnDataType="bigint" columnName="journal_id" tableName="bonus_point" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-26">
+        <dropNotNullConstraint columnDataType="timestamp" columnName="last_login_date" tableName="my_device"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-27">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="name" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-28">
+        <dropNotNullConstraint columnDataType="bigint" columnName="profile_id" tableName="access_right"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-29">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="recipient" tableName="notification" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-30">
+        <dropDefaultValue columnDataType="boolean" columnName="redeem_bonus" tableName="transaction_log"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-31">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_id" tableName="request"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-32">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_ref" tableName="request"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-33">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_type_code" tableName="request"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-34">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="source_account" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-35">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="source_account_bank_code" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-36">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="source_narration" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-37">
+        <addDefaultValue columnDataType="varchar(20)" columnName="status" defaultValue="START" tableName="transaction_log"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-38">
+        <addDefaultValue columnDataType="varchar(20)" columnName="status" defaultValue="ACTIVE" tableName="wallet_account"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-39">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="title" tableName="notification"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-40">
+        <addDefaultValue columnDataType="varchar(20)" columnName="trans_status" defaultValue="OK" tableName="jounal"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-41">
+        <addNotNullConstraint columnDataType="bigint" columnName="transaction_type_id" tableName="approval_workflow" validate="true"/>
+    </changeSet> -->
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-42">
+        <dropUniqueConstraint constraintName="UC_PROFILEPHONE_NUMBER_COL" tableName="profile"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1637758348516-43">
+        <addUniqueConstraint columnNames="phone_number" constraintName="UC_PROFILEPHONE_NUMBER_COL" tableName="profile"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,48 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="EMMANUEL (generated)" id="1659973506218-44">
+        <createTable tableName="biller_recurring">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="biller_recurringPK"/>
+            </column>
+            <column name="account_number" type="VARCHAR(255)"/>
+            <column name="amount_to_pay" type="FLOAT8"/>
+            <column name="biller_name" type="VARCHAR(255)"/>
+            <column name="currency" type="VARCHAR(255)"/>
+            <column name="end" type="date"/>
+            <column name="narration" type="VARCHAR(255)"/>
+            <column name="next" type="date"/>
+            <column name="number_of_times" type="INTEGER"/>
+            <column name="payers_email" type="VARCHAR(255)"/>
+            <column name="payers_name" type="VARCHAR(255)"/>
+            <column name="phone" type="VARCHAR(255)"/>
+            <column name="payment_frequency" type="VARCHAR(255)"/>
+            <column name="redeem_bonus" type="BOOLEAN"/>
+            <column name="retry" type="date"/>
+            <column name="rrr" type="VARCHAR(255)"/>
+            <column name="service_name" type="VARCHAR(255)"/>
+            <column name="standing_debit" type="VARCHAR(255)"/>
+            <column name="start" type="date"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="success_count" type="INTEGER"/>
+            <column name="trans_ref" type="VARCHAR(255)"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1659973506218-54">
+        <addColumn tableName="card_request">
+            <column name="unique_identifier" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1659973506218-55">
+        <addColumn tableName="user_cards">
+            <column name="unique_identifier" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1659973506218-56">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="card_request" constraintName="FK4lk7myp945jvb4bch5k2446nr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1659973506218-58">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="biller_recurring" constraintName="FKld3c4dfahme0456t3oie5wfga" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

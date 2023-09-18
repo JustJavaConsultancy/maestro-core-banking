@@ -1,0 +1,44 @@
+{
+  "apiGatewayApp": {
+    "vehicleInsuranceRequest": {
+      "home": {
+        "title": "Vehicle Insurance Requests",
+        "createLabel": "Create a new Vehicle Insurance Request",
+        "createOrEditLabel": "Create or edit a Vehicle Insurance Request",
+        "notFound": "No Vehicle Insurance Requests found"
+      },
+      "created": "A new Vehicle Insurance Request is created with identifier {{ param }}",
+      "updated": "A Vehicle Insurance Request is updated with identifier {{ param }}",
+      "deleted": "A Vehicle Insurance Request is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vehicle Insurance Request {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehicle Insurance Request"
+      },
+      "operation": "Operation",
+      "policyNo": "Policy No",
+      "certificateNo": "Certificate No",
+      "occupation": "Occupation",
+      "sector": "Sector",
+      "idType": "Id Type",
+      "idNumber": "Id Number",
+      "vehicleType": "Vehicle Type",
+      "registrationNo": "Registration No",
+      "vehMake": "Veh Make",
+      "vehModel": "Veh Model",
+      "vehYear": "Veh Year",
+      "registrationStart": "Registration Start",
+      "expiryDate": "Expiry Date",
+      "mileage": "Mileage",
+      "vehColor": "Veh Color",
+      "chassisNo": "Chassis No",
+      "engineNo": "Engine No",
+      "engineCapacity": "Engine Capacity",
+      "seatCapacity": "Seat Capacity",
+      "balance": "Balance",
+      "profile": "Profile",
+      "insuranceType": "Insurance Type"
+    }
+  }
+}

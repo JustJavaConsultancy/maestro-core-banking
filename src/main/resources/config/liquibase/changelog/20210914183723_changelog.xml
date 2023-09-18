@@ -1,0 +1,778 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-14">
+        <createSequence incrementBy="50" sequenceName="sequence_generator" startValue="1"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-15">
+        <createTable tableName="jhi_persistent_audit_event">
+            <column autoIncrement="true" name="event_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+            </column>
+            <column name="event_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="event_type" type="VARCHAR(255)"/>
+            <column name="principal" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-16">
+        <createTable tableName="jhi_persistent_audit_evt_data">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-17">
+        <createTable tableName="jounal">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="jounalPK"/>
+            </column>
+            <column name="changes" type="FLOAT8"/>
+            <column name="due_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="external_ref" type="VARCHAR(255)"/>
+            <column name="memo" type="VARCHAR(255)"/>
+            <column name="narration" type="VARCHAR(255)"/>
+            <column name="payment_type" type="VARCHAR(255)"/>
+            <column name="reference" type="VARCHAR(255)"/>
+            <column name="trans_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column defaultValue="OK" name="trans_status" type="VARCHAR(20)"/>
+            <column name="comment" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-18">
+        <createTable tableName="jounal_line">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="jounal_linePK"/>
+            </column>
+            <column defaultValueNumeric="0.0" name="credit" type="DOUBLE PRECISION"/>
+            <column name="current_balance" type="FLOAT8"/>
+            <column defaultValueNumeric="0.0" name="debit" type="DOUBLE PRECISION"/>
+            <column name="jounal_id" type="BIGINT"/>
+            <column name="wallet_account_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-19">
+        <createTable tableName="kyclevel">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="kyclevelPK"/>
+            </column>
+            <column name="address" type="BOOLEAN"/>
+            <column name="biller_transaction" type="BOOLEAN"/>
+            <column name="cumulative_balance_limit" type="FLOAT8"/>
+            <column name="daily_transaction_limit" type="FLOAT8"/>
+            <column name="dateof_birth" type="BOOLEAN"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="email_address" type="BOOLEAN"/>
+            <column name="employment_details" type="BOOLEAN"/>
+            <column name="evidenceof_address" type="BOOLEAN"/>
+            <column name="first_name" type="BOOLEAN"/>
+            <column name="gender" type="BOOLEAN"/>
+            <column name="kyc" type="VARCHAR(255)"/>
+            <column name="kyc_id" type="BIGINT"/>
+            <column name="kyc_level" type="INTEGER"/>
+            <column name="last_name" type="BOOLEAN"/>
+            <column name="payment_transaction" type="BOOLEAN"/>
+            <column name="phone_number" type="BOOLEAN"/>
+            <column name="photo_upload" type="BOOLEAN"/>
+            <column name="verificationof_address" type="BOOLEAN"/>
+            <column name="verified_bvn" type="BOOLEAN"/>
+            <column name="verified_valid_id" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-20">
+        <createTable tableName="lender">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="lenderPK"/>
+            </column>
+            <column name="preferred_tenure" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rate" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="profile_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-21">
+        <createTable tableName="loan">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="loanPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="amount" type="FLOAT8"/>
+            <column name="borrower_id" type="VARCHAR(255)"/>
+            <column name="customer_account_no" type="VARCHAR(255)"/>
+            <column name="customer_bank_code" type="VARCHAR(255)"/>
+            <column name="customer_id" type="VARCHAR(255)"/>
+            <column name="eligibility_amount" type="FLOAT8"/>
+            <column name="loan_id" type="VARCHAR(255)"/>
+            <column name="loan_type" type="VARCHAR(255)"/>
+            <column name="mandate_reference" type="VARCHAR(255)"/>
+            <column name="ministry" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="tenure" type="VARCHAR(255)"/>
+            <column name="lender_id" type="BIGINT"/>
+            <column name="profile_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-22">
+        <createTable tableName="my_device">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="my_devicePK"/>
+            </column>
+            <column name="device_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="device_notification_token" type="VARCHAR(255)"/>
+            <column name="last_login_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="profile_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-23">
+        <createTable tableName="notification">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="notificationPK"/>
+            </column>
+            <column name="content" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recipient" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-24">
+        <createTable tableName="payment_transaction">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="payment_transactionPK"/>
+            </column>
+            <column name="amount" type="numeric(21, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="channel" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="currency" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="destination_account" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="destination_account_bank_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="destination_account_name" type="VARCHAR(255)"/>
+            <column name="destination_narration" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="paymenttrans_id" type="BIGINT"/>
+            <column name="source_account" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="source_account_bank_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="source_account_name" type="VARCHAR(255)"/>
+            <column name="source_narration" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="transaction_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="transaction_ref" type="VARCHAR(255)"/>
+            <column name="transaction_type" type="VARCHAR(255)"/>
+            <column name="transaction_owner_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-25">
+        <createTable tableName="profile">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="profilePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="bvn" type="VARCHAR(255)"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="device_notification_token" type="VARCHAR(255)"/>
+            <column name="gender" type="VARCHAR(255)"/>
+            <column name="nin" type="VARCHAR(255)"/>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="photo" type="BYTEA"/>
+            <column name="photo_content_type" type="VARCHAR(255)"/>
+            <column name="xxxx" type="VARCHAR(255)"/>
+            <column name="profile_id" type="VARCHAR(255)"/>
+            <column name="profile_picture" type="VARCHAR(255)"/>
+            <column name="answer" type="VARCHAR(255)"/>
+            <column name="question" type="VARCHAR(255)"/>
+            <column name="total_bonus" type="FLOAT8"/>
+            <column name="valid_id" type="VARCHAR(255)"/>
+            <column name="approval_group_id" type="BIGINT"/>
+            <column name="kyc_id" type="BIGINT"/>
+            <column name="profile_type_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-26">
+        <createTable tableName="profile_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="profile_typePK"/>
+            </column>
+            <column name="profiletype" type="VARCHAR(255)"/>
+            <column name="profiletype_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-27">
+        <createTable tableName="request">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="requestPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="comment" type="VARCHAR(255)"/>
+            <column name="completed" type="BOOLEAN"/>
+            <column name="point_of_failure" type="VARCHAR(255)"/>
+            <column name="request_id" type="VARCHAR(255)"/>
+            <column name="request_ref" type="VARCHAR(255)"/>
+            <column name="request_type_code" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="document" type="VARCHAR(255)"/>
+            <column name="approver_id" type="BIGINT"/>
+            <column name="initiator_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-28">
+        <createTable tableName="right_access">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="right_accessPK"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-29">
+        <createTable tableName="scheme">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="schemePK"/>
+            </column>
+            <column name="account_number" type="VARCHAR(255)"/>
+            <column name="bank_code" type="VARCHAR(255)"/>
+            <column name="scheme" type="VARCHAR(255)"/>
+            <column name="scheme_id" type="VARCHAR(255)"/>
+            <column name="scheme_category_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-30">
+        <createTable tableName="scheme_category">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="scheme_categoryPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="scheme_category" type="VARCHAR(255)"/>
+            <column name="schemecategory_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-31">
+        <createTable tableName="super_agent">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="super_agentPK"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="agent_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="scheme_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-32">
+        <createTable tableName="teller">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="tellerPK"/>
+            </column>
+            <column name="latitude" type="FLOAT8"/>
+            <column name="location" type="VARCHAR(255)"/>
+            <column name="longitude" type="FLOAT8"/>
+            <column name="agent_id" type="BIGINT"/>
+            <column name="profile_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-33">
+        <createTable tableName="transaction_log">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="transaction_logPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="account_number" type="VARCHAR(255)"/>
+            <column name="agent_ref" type="VARCHAR(255)"/>
+            <column name="amount" type="FLOAT8"/>
+            <column name="beneficiary_name" type="VARCHAR(255)"/>
+            <column name="bonus_amount" type="FLOAT8"/>
+            <column name="channel" type="VARCHAR(255)"/>
+            <column name="charges" type="FLOAT8"/>
+            <column name="dest_bank_code" type="VARCHAR(255)"/>
+            <column name="is_to_be_saved" type="BOOLEAN"/>
+            <column name="is_wallet_account" type="BOOLEAN"/>
+            <column name="narration" type="VARCHAR(255)"/>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="redeem_bonus" type="BOOLEAN"/>
+            <column name="rrr" type="VARCHAR(255)"/>
+            <column name="short_comment" type="VARCHAR(255)"/>
+            <column name="source_account_name" type="VARCHAR(255)"/>
+            <column name="source_account_number" type="VARCHAR(255)"/>
+            <column name="source_bank_code" type="VARCHAR(255)"/>
+            <column name="specific_channel" type="VARCHAR(255)"/>
+            <column defaultValue="START" name="status" type="VARCHAR(20)"/>
+            <column name="trans_ref" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-34">
+        <createTable tableName="vehicle_insurance_request">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="vehicle_insurance_requestPK"/>
+            </column>
+            <column name="balance" type="FLOAT8"/>
+            <column name="certificate_no" type="VARCHAR(255)"/>
+            <column name="certificate_url" type="VARCHAR(255)"/>
+            <column name="chassis_no" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="engine_capacity" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="engine_no" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expiry_date" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_number" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mileage" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="occupation" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="operation" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="policy_no" type="VARCHAR(255)"/>
+            <column name="registration_no" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="registration_start" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="seat_capacity" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sector" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="veh_color" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="veh_make" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="veh_model" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="veh_year" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vehicle_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="insurance_type_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="profile_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-35">
+        <createTable tableName="wallet_account">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="wallet_accountPK"/>
+            </column>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="account_name" type="VARCHAR(255)"/>
+            <column name="account_number" type="VARCHAR(255)"/>
+            <column defaultValue="HPvehMn1z2mbh3I/fDtskA==" name="actual_balance" type="VARCHAR(20)"/>
+            <column name="current_balance" type="VARCHAR(255)"/>
+            <column name="date_opened" type="date"/>
+            <column name="nuban_account_no" type="VARCHAR(255)"/>
+            <column defaultValue="ACTIVE" name="status" type="VARCHAR(20)"/>
+            <column name="tracking_ref" type="VARCHAR(255)"/>
+            <column defaultValue="HPvehMn1z2mbh3I/fDtskA==" name="wallet_limit" type="VARCHAR(20)"/>
+            <column name="account_owner_id" type="BIGINT"/>
+            <column name="parent_id" type="BIGINT"/>
+            <column name="scheme_id" type="BIGINT"/>
+            <column name="wallet_account_type_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-36">
+        <createTable tableName="wallet_account_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="wallet_account_typePK"/>
+            </column>
+            <column name="accountype_id" type="BIGINT"/>
+            <column name="wallet_account_type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-37">
+        <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-38">
+        <addPrimaryKey columnNames="id" constraintName="access_itemPK" tableName="access_item"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-39">
+        <addPrimaryKey columnNames="id" constraintName="access_rightPK" tableName="access_right"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-40">
+        <addPrimaryKey columnNames="id" constraintName="addressPK" tableName="address"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-41">
+        <addPrimaryKey columnNames="id" constraintName="agentPK" tableName="agent"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-42">
+        <addPrimaryKey columnNames="id" constraintName="app_updatePK" tableName="app_update"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-43">
+        <addPrimaryKey columnNames="id" constraintName="approval_groupPK" tableName="approval_group"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-44">
+        <addPrimaryKey columnNames="id" constraintName="approval_workflowPK" tableName="approval_workflow"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-45">
+        <addPrimaryKey columnNames="id" constraintName="bankPK" tableName="bank"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-46">
+        <addPrimaryKey columnNames="id" constraintName="beneficiaryPK" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-47">
+        <addPrimaryKey columnNames="id" constraintName="billerPK" tableName="biller"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-48">
+        <addPrimaryKey columnNames="id" constraintName="biller_categoryPK" tableName="biller_category"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-49">
+        <addPrimaryKey columnNames="id" constraintName="biller_custom_field_optionPK" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-50">
+        <addPrimaryKey columnNames="id" constraintName="biller_platformPK" tableName="biller_platform"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-51">
+        <addPrimaryKey columnNames="id" constraintName="biller_service_optionPK" tableName="biller_service_option"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-52">
+        <addPrimaryKey columnNames="id" constraintName="biller_transactionPK" tableName="biller_transaction"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-53">
+        <addPrimaryKey columnNames="id" constraintName="bonus_pointPK" tableName="bonus_point"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-54">
+        <addPrimaryKey columnNames="id" constraintName="contact_usPK" tableName="contact_us"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-55">
+        <addPrimaryKey columnNames="id" constraintName="countrol_accountPK" tableName="countrol_account"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-56">
+        <addPrimaryKey columnNames="id" constraintName="customersubscriptionPK" tableName="customersubscription"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-57">
+        <addPrimaryKey columnNames="id" constraintName="double_entry_loggerPK" tableName="double_entry_logger"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-58">
+        <addPrimaryKey columnNames="id" constraintName="field_drop_downPK" tableName="field_drop_down"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-59">
+        <addPrimaryKey columnNames="id" constraintName="idempotentPK" tableName="idempotent"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-60">
+        <addPrimaryKey columnNames="id" constraintName="insurance_providerPK" tableName="insurance_provider"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-61">
+        <addPrimaryKey columnNames="id" constraintName="insurance_typePK" tableName="insurance_type"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-62">
+        <addPrimaryKey columnNames="id" constraintName="ipg_synch_transactionPK" tableName="ipg_synch_transaction"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-63">
+        <addPrimaryKey columnNames="name" constraintName="jhi_authorityPK" tableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-64">
+        <addPrimaryKey columnNames="id" constraintName="jhi_userPK" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-65">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-66">
+        <addUniqueConstraint columnNames="device_id" constraintName="UC_MY_DEVICEDEVICE_ID_COL" tableName="my_device"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-67">
+        <addUniqueConstraint columnNames="agent_id" constraintName="UK_exc4lmq5urgwwdt3vay1aex6x" tableName="super_agent"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-68">
+        <addUniqueConstraint columnNames="profile_id" constraintName="UK_ey2240b1pn1tpbwi64rdy3dxu" tableName="lender"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-69">
+        <addUniqueConstraint columnNames="transaction_type_id" constraintName="UK_muswsgteu9ukkb6yf3q5slwo3" tableName="approval_workflow"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-70">
+        <addUniqueConstraint columnNames="profile_id" constraintName="UK_ny39rnmaqljtc78yp7nt3u5p7" tableName="insurance_provider"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-71">
+        <addUniqueConstraint columnNames="journal_id" constraintName="UK_t2o98kk7yj6kqgi0twk27sq2c" tableName="bonus_point"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-72">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="bonus_point" constraintName="FK1ehegfmnm5uiy8difj6wlk0y4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-73">
+        <addForeignKeyConstraint baseColumnNames="biller_service_option_id" baseTableName="field_drop_down" constraintName="FK1g584p2nct5mqn92ysi98y8q5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_service_option" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-74">
+        <addForeignKeyConstraint baseColumnNames="profile_type_id" baseTableName="profile" constraintName="FK1r59jhe4tfjkttolfk06crq93" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile_type" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-75">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-76">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-77">
+        <addForeignKeyConstraint baseColumnNames="account_owner_id" baseTableName="beneficiary" constraintName="FK2i0wlyre0d49kqd29ftlofutm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-78">
+        <addForeignKeyConstraint baseColumnNames="account_owner_id" baseTableName="wallet_account" constraintName="FK4c0b2fm6r0wevukx95iw2f64x" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-79">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="teller" constraintName="FK4lx6pu3l07nt20csvtaggo59r" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-80">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-81">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="insurance_provider" constraintName="FK5c9r9rnf3g14s0elxnp33dx11" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-82">
+        <addForeignKeyConstraint baseColumnNames="biller_id" baseTableName="biller_platform" constraintName="FK5kcswr5vcbri73mr5tlve0cd3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-83">
+        <addForeignKeyConstraint baseColumnNames="wallet_account_id" baseTableName="jounal_line" constraintName="FK5xoglbb34pk9yi4m6ldwcnf33" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="wallet_account" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-84">
+        <addForeignKeyConstraint baseColumnNames="initiator_id" baseTableName="request" constraintName="FK66h5d9ej6kn7wajxrr10oguft" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="approval_group" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-85">
+        <addForeignKeyConstraint baseColumnNames="agent_id" baseTableName="super_agent" constraintName="FK6kjj601vapp3ouo5hu7j2ykuh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="agent" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-86">
+        <addForeignKeyConstraint baseColumnNames="transaction_type_id" baseTableName="approval_workflow" constraintName="FK6kxywus8rt5t2tf0xs20b6fq2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="right_access" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-87">
+        <addForeignKeyConstraint baseColumnNames="debit_id" baseTableName="double_entry_logger" constraintName="FK6mf10mojprfd500hxq2e83ksx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="countrol_account" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-88">
+        <addForeignKeyConstraint baseColumnNames="assigned_to_id" baseTableName="contact_us" constraintName="FK70ite9piohfge3q8qjtjtejxx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-89">
+        <addForeignKeyConstraint baseColumnNames="address_owner_id" baseTableName="address" constraintName="FK73vp3eyni736p5yl8yl46bihb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-90">
+        <addForeignKeyConstraint baseColumnNames="super_agent_id" baseTableName="agent" constraintName="FK74uqkgjg9ep8wx5vyh5x5lnb6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="agent" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-91">
+        <addForeignKeyConstraint baseColumnNames="sender_id" baseTableName="contact_us" constraintName="FK79whlah61o21vooi7x3hbdbvq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-92">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="loan" constraintName="FK7rbi0aeajb4qanysrcjvij2g3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-93">
+        <addForeignKeyConstraint baseColumnNames="credit_id" baseTableName="double_entry_logger" constraintName="FK808jdj7a2n3r1ouaoheiic0a7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="countrol_account" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-94">
+        <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="wallet_account" constraintName="FK883g3ii8iplo8xdihb800rfd0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="wallet_account" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-95">
+        <addForeignKeyConstraint baseColumnNames="wallet_account_type_id" baseTableName="wallet_account" constraintName="FK9f0frcflw3xl9ifqbv6i0rtc0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="wallet_account_type" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-96">
+        <addForeignKeyConstraint baseColumnNames="insurance_type_id" baseTableName="vehicle_insurance_request" constraintName="FKa7tdgv63r43dxcs0e27ijcvi6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="insurance_type" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-97">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="agent" constraintName="FKaxigi4ctb5yqnlkwukj5na58e" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-98">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="access_right" constraintName="FKbe92nremphp8t0yi4cymcd8hr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-99">
+        <addForeignKeyConstraint baseColumnNames="approver_id" baseTableName="approval_workflow" constraintName="FKc28pj3k8ijbrxa7p8pn2v0so1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="approval_group" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-100">
+        <addForeignKeyConstraint baseColumnNames="scheme_id" baseTableName="super_agent" constraintName="FKcbw1sguoeneencp1fepichsag" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="scheme" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-101">
+        <addForeignKeyConstraint baseColumnNames="approver_id" baseTableName="request" constraintName="FKd7mf9kb3glrjviaul9jd2htp2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="approval_group" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-102">
+        <addForeignKeyConstraint baseColumnNames="lender_id" baseTableName="loan" constraintName="FKeafnasv5lum8xij1goylepmyb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lender" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-103">
+        <addForeignKeyConstraint baseColumnNames="right_id" baseTableName="access_item" constraintName="FKf4jk6j1236hj3rs1vkpj87oxh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="right_access" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-104">
+        <addForeignKeyConstraint baseColumnNames="biller_platform_id" baseTableName="biller_custom_field_option" constraintName="FKgc28hreme0j025cbul9gwe3o8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_platform" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-105">
+        <addForeignKeyConstraint baseColumnNames="initiator_id" baseTableName="approval_workflow" constraintName="FKgfr45sr9jufrveq6dy9mrxko5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="approval_group" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-106">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="profile" constraintName="FKhpks30secbw6ww6sjplw9xtth" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-107">
+        <addForeignKeyConstraint baseColumnNames="scheme_category_id" baseTableName="scheme" constraintName="FKj5mlaaxt3g8gkdkd2y23ydawy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="scheme_category" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-108">
+        <addForeignKeyConstraint baseColumnNames="approval_group_id" baseTableName="profile" constraintName="FKj8fkjjjuhj86f69s470agnel0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="approval_group" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-109">
+        <addForeignKeyConstraint baseColumnNames="journal_id" baseTableName="bonus_point" constraintName="FKk38e738nebhpi5c05omofhrov" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jounal" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-110">
+        <addForeignKeyConstraint baseColumnNames="transaction_owner_id" baseTableName="payment_transaction" constraintName="FKk4rruvegs3csgj6ahqfulip3p" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-111">
+        <addForeignKeyConstraint baseColumnNames="agent_id" baseTableName="teller" constraintName="FKkh83xurxvsh7mhx9pcgthk9lh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="agent" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-112">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="my_device" constraintName="FKkruk1vj1g1qr9o4anc135lxgp" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-113">
+        <addForeignKeyConstraint baseColumnNames="biller_custom_field_option_id" baseTableName="biller_service_option" constraintName="FKlnob0tanvpym8hyeocoi4ne99" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_custom_field_option" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-114">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="lender" constraintName="FKmge82i5esriateol1rxtw59y0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-115">
+        <addForeignKeyConstraint baseColumnNames="phone_number_id" baseTableName="customersubscription" constraintName="FKmsg0ssg2ip7nl0winl4qtym7e" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-116">
+        <addForeignKeyConstraint baseColumnNames="kyc_id" baseTableName="profile" constraintName="FKnuabxdah40ha5d5lnstag3m4d" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="kyclevel" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-117">
+        <addForeignKeyConstraint baseColumnNames="phone_number_id" baseTableName="biller_transaction" constraintName="FKnusmil6rkxx2jao0yw1fuudb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-118">
+        <addForeignKeyConstraint baseColumnNames="biller_id" baseTableName="customersubscription" constraintName="FKokjy6mw2c436lyrd2rppweq3b" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-119">
+        <addForeignKeyConstraint baseColumnNames="scheme_id" baseTableName="wallet_account" constraintName="FKpn5mwvadyukqbfi4rs8apwtc2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="scheme" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-120">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="vehicle_insurance_request" constraintName="FKpsinqrcpj10nts7a19jlsvd02" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-121">
+        <addForeignKeyConstraint baseColumnNames="jounal_id" baseTableName="jounal_line" constraintName="FKq1qkwi3bp726yehudbih8xe5b" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jounal" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-122">
+        <addForeignKeyConstraint baseColumnNames="biller_category_id" baseTableName="biller" constraintName="FKqnvvtep4sk63xu4fbwhkx9af0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_category" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-123">
+        <addForeignKeyConstraint baseColumnNames="access_right_id" baseTableName="access_item" constraintName="FKxllupswbeu5n91x8oh3e9i7c" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="access_right" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-124">
+        <dropTable tableName="jounal_id_to_delete"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-125">
+        <dropColumn columnName="has_custom_field_option" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-126">
+        <dropColumn columnName="new_column" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-1">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="account_number" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-2">
+        <dropNotNullConstraint columnDataType="float8" columnName="amount" tableName="bonus_point"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-3">
+        <dropNotNullConstraint columnDataType="number(19,2)" columnName="amount" tableName="ipg_synch_transaction"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-4">
+        <addNotNullConstraint columnDataType="bigint" columnName="approver_id" tableName="approval_workflow" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-5">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="bank_code" tableName="bank"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-6">
+        <addNotNullConstraint columnDataType="bigint" columnName="initiator_id" tableName="approval_workflow" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-7">
+        <dropDefaultValue columnDataType="boolean" columnName="is_maker" tableName="access_item"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-8">
+        <dropNotNullConstraint columnDataType="boolean" columnName="is_wallet" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-9">
+        <dropDefaultValue columnDataType="boolean" columnName="is_wallet" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-10">
+        <addNotNullConstraint columnDataType="bigint" columnName="journal_id" tableName="bonus_point" validate="true"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-11">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="name" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-12">
+        <dropNotNullConstraint columnDataType="bigint" columnName="profile_id" tableName="access_right"/>
+    </changeSet>
+    <changeSet author="Kazeem Akinrinde (generated)" id="1631644758808-13">
+        <addNotNullConstraint columnDataType="bigint" columnName="transaction_type_id" tableName="approval_workflow" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,10 @@
+{
+  "apiGatewayApp": {
+    "AgentStatus": {
+      "null": "",
+      "APPROVED": "APPROVED",
+      "UNAPPROVED": "UNAPPROVED",
+      "REJECTED": "REJECTED"
+    }
+  }
+}

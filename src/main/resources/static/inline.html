@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>SpecsWallet</title>
+        <style>
+            div{
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content:center;
+                align-items: center;
+                background-color:#F3F6F8;
+                color: #000;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h4>Loading.</h4>
+        </div>
+        <script type="text/javascript" src="https://login.remita.net/payment/v1/remita-pay-inline.bundle.js"></script>
+        <script>
+            document.querySelector('h4').innerHTML = "Loading..";
+            window.addEventListener("message", function(data) {
+               // alert("Fetching inline...")
+                document.querySelector('h4').innerHTML = "Loading...";
+                const ObjectData = JSON.parse(data.data)
+               // alert(`${d.phone} ${d.last_name}`)
+              // alert(`${ObjectData.phone} ${ObjectData.last_name}`)
+                makePayment(ObjectData);
+                this.window = window
+            });
+            function close(r) {
+                try {
+                    this.window.ReactNativeWebView.postMessage(JSON.stringify(r))
+                } catch (error) {
+                  //  alert("error closing...")
+                }
+            }
+            function makePayment(d) {
+                const paymentEngine = RmPaymentEngine.init({
+                    //QzAwMDAyNzEyNTl8MTEwNjE4NjF8OWZjOWYwNmMyZDk3MDRhYWM3YThiOThlNTNjZTE3ZjYxOTY5NDdmZWE1YzU3NDc0ZjE2ZDZjNTg1YWYxNWY3NWM4ZjMzNzZhNjNhZWZlOWQwNmJhNTFkMjIxYTRiMjYzZDkzNGQ3NTUxNDIxYWNlOGY4ZWEyODY3ZjlhNGUwYTY=
+                    key: 'U1BFQ1NSV3w2NzIwMjQwMjI4fDE1MDE1NTg0N2JkNGNhNGE0Y2E2NDJiOTkxNGE4ZjM1ZDRlYTU0Yzc0ODVkOTdkZjMzMGE2MDcwMmJmNDQ0ZThiN2Y1ZDZhYzlmMmQ4ZmNmNGFkMDEzMTExMDhjODU4MzNiOWIyNGNiOWVlNGY4NGQ4NjUxMmUwNzMwMzk1OTE3',
+                    customerId:d.accountNumber,
+                    currency:"NGN",
+                    firstName: d.first_name,
+                    lastName: d.last_name,
+                    email: d.email,
+                    phoneNumber: d.phone,
+                    amount: d.amount,
+                    transactionId: d.transactionId,
+                    narration: `Funding of ${d.accountNumber} (${d.accountName}) with the sum of N${d.amount}`,
+                   // channel : d.channel || 'card',
+                    onSuccess: function (response) {
+                        // console.log('callback Successful Response', response);
+                        close({data:response})
+                    },
+                    onError: function (response) {
+                       // console.log('callback Error Response', response);
+                        close({error:true, e:response})
+                    },
+                    onClose: function () {
+                       // console.log("closed");
+                    close({close:true})
+                    }
+                });
+                paymentEngine.showPaymentWidget();
+            }
+        </script>
+    </body>
+</html>

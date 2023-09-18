@@ -1,0 +1,66 @@
+{
+  "name": "Agent",
+  "fields": [
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "occupation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "latitude",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "businessName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "businessType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "CompanyRegType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "CompanyRegNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "profile",
+      "relationshipName": "profile",
+      "otherEntityField": "phoneNumber"
+    }
+  ],
+  "changelogDate": "20201013100013",
+  "javadoc": "Agent Entity",
+  "entityTableName": "agent",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "angularJSSuffix": "mySuffix"
+}

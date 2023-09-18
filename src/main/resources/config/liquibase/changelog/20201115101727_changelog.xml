@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="USER (generated)" id="1605435845373-7">
+        <addColumn tableName="jounal">
+            <column name="changes" type="float8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1605435845373-8">
+        <addColumn tableName="biller_platform">
+            <column name="value_id" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1605435845373-9">
+        <addColumn tableName="biller_platform">
+            <column name="value_name" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1605435845373-2">
+        <setTableRemarks tableName="address"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1605435845373-3">
+        <setTableRemarks tableName="biller"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1605435845373-4">
+        <setTableRemarks tableName="kyclevel"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1605435845373-5">
+        <setTableRemarks tableName="profile"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1605435845373-6">
+        <setTableRemarks tableName="profile_type"/>
+    </changeSet>
+</databaseChangeLog>

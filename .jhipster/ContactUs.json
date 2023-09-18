@@ -1,0 +1,51 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "sender",
+      "otherEntityName": "profile",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "contactUs"
+    },
+    {
+      "relationshipName": "assignedTo",
+      "otherEntityName": "profile",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "contactUs"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "contactCategory",
+      "fieldType": "ContactCategory",
+      "fieldValues": "COMPLAINT,ENQUIRY"
+    },
+    {
+      "fieldName": "complaintCategory",
+      "fieldType": "ComplaintCategory",
+      "fieldValues": "ACCOUNTRELOADED,KYCUPGRADE,FAILEDTRANSACTION,DEBITCARD,FRAUDALERT,CUSTOMERINFOUPGRADE"
+    },
+    {
+      "fieldName": "enquiryCategory",
+      "fieldType": "EnquiryCategory",
+      "fieldValues": "BUSINESSPARTNERSHIPS,PRICING,AGENCY,PRODUCTOFFERINGS,FRAUDALERT,OTHERS"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "ContactStatus",
+      "fieldValues": "OPEN,ASSIGNED,CLOSE"
+    }
+  ],
+  "changelogDate": "20210514121714",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "contact_us",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

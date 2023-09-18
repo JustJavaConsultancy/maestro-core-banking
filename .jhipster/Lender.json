@@ -1,0 +1,38 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "profile",
+      "otherEntityName": "profile",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": ["required"],
+      "otherEntityField": "phoneNumber",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": false,
+      "otherEntityRelationshipName": "lender"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "rate",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "preferredTenure",
+      "fieldType": "Tenure",
+      "fieldValues": "MONTHLY,QUARTERLY,BI_ANNUALLY,ANNUALLY",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "changelogDate": "20210616102754",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "lender",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

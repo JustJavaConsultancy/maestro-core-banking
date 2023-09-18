@@ -1,0 +1,18 @@
+.filtered-date-box {
+  display: flex;
+
+  span {
+    display: inline-block;
+    margin: 0 0.875rem;
+    font-weight: bold;
+  }
+}
+
+.call-status-box {
+  display: inline-block;
+  padding: 0.3rem 0.5rem;
+  // background-color: hsl(147, 100%, 33%);
+  // background-color: hsl(0, 100%, 50%);
+  // background-color: hsla(219, 92%, 46%, 0.987);
+  color: #fff;
+}

@@ -1,0 +1,19 @@
+.end-day-filter-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: 1.5rem 0;
+}
+
+.end-day-btn {
+  border-radius: 5px;
+  padding: 0.45rem 1rem;
+  font-size: 0.75rem;
+  margin-top: -1.5rem;
+  background-color: #565681;
+  color: #fff;
+
+  border: none;
+}

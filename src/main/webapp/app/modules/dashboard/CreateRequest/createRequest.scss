@@ -1,0 +1,29 @@
+.approval-entry {
+  font-family: 'poppins-regular';
+}
+
+.approval-entry .regular-input {
+  padding: 14.5px 16px 14.5px 24px;
+  width: 451px;
+  background: #ffffff;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.approval-entry .regular-input:focus {
+  outline-color: #565682;
+}
+
+.approval-entry tr {
+  height: 80px;
+}
+
+.approval-entry .multi {
+  height: 100px;
+}
+
+.left-label {
+  padding-right: 50px;
+}

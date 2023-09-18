@@ -1,0 +1,9 @@
+{
+  "apiGatewayApp": {
+    "InsuranceOperation": {
+      "null": "",
+      "NEW": "NEW",
+      "RENEW": "RENEW"
+    }
+  }
+}

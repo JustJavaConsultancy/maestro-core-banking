@@ -1,0 +1,72 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-6">
+        <createTable tableName="insurance_provider">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="insurance_providerPK"/>
+            </column>
+            <column name="preferred_tenure" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rate" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="profile_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-7">
+        <addUniqueConstraint columnNames="agent_id" constraintName="UK_exc4lmq5urgwwdt3vay1aex6x"
+                             tableName="super_agent"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-8">
+        <addUniqueConstraint columnNames="transaction_type_id" constraintName="UK_muswsgteu9ukkb6yf3q5slwo3"
+                             tableName="approval_workflow"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-9">
+        <addUniqueConstraint columnNames="profile_id" constraintName="UK_ny39rnmaqljtc78yp7nt3u5p7"
+                             tableName="insurance_provider"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-10">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="insurance_provider"
+                                 constraintName="FK5c9r9rnf3g14s0elxnp33dx11" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-11">
+        <addForeignKeyConstraint baseColumnNames="insurance_type_id" baseTableName="vehicle_insurance_request"
+                                 constraintName="FKa7tdgv63r43dxcs0e27ijcvi6" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id"
+                                 referencedTableName="insurance_type" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-12">
+        <addForeignKeyConstraint baseColumnNames="biller_platform_id" baseTableName="biller_custom_field_option"
+                                 constraintName="FKgc28hreme0j025cbul9gwe3o8" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id"
+                                 referencedTableName="biller_platform" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-13">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="vehicle_insurance_request"
+                                 constraintName="FKpsinqrcpj10nts7a19jlsvd02" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-1">
+        <alterSequence sequenceName="sequence_generator"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-2">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="address_type" tableName="address"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-3">
+        <addNotNullConstraint columnDataType="bigint" columnName="agent_id" tableName="super_agent" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-4">
+        <dropNotNullConstraint columnDataType="timestamp" columnName="last_login_date" tableName="my_device"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1627893405462-5">
+        <addNotNullConstraint columnDataType="bigint" columnName="scheme_id" tableName="super_agent" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,81 @@
+.approval-gorup-selector {
+  background-color: #f6f6f9;
+  padding: 20px;
+}
+.custom-input1 {
+  margin: 10px;
+  padding: 14.5px 16px 14.5px 24px;
+  width: 500px;
+  border: 1px solid #95a0be;
+  border-radius: 8px;
+}
+
+.short {
+  width: 200px;
+  padding: 11.5px 16px 14.5px 24px;
+}
+
+.transaction-table {
+  // font-family: "poppins";
+  //  font-size: 14px;
+  background-color: #fff;
+}
+.transaction-table th {
+  font-size: 14px;
+  font-family: 'poppins-Regular';
+}
+
+.transaction-table tbody tr {
+  background-color: #f2f5fb;
+  font-size: 14px;
+  font-family: 'poppins-Regular';
+}
+
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 10px solid #fff;
+}
+
+.table-div {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.create-approval-button {
+  padding: 10.178px 15.5093px;
+  background: #435faa;
+  border-radius: 3.87733px;
+  // width: 176.02px;
+  height: 37.36px;
+  font-weight: normal;
+  font-size: 13.5707px;
+  line-height: 17px;
+  color: #fff;
+  border: 0;
+}
+.approval-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: space-around;
+}
+.work-flow-select {
+  border: 1px solid #565682;
+  border-radius: 8px;
+  padding: 14.5px 16px 14.5px 24px;
+  width: 70%;
+  margin-left: 20px;
+  font-family: 'Poppins-Regular';
+  color: #212145;
+}
+label span {
+  font-size: 16px;
+  font-family: 'Poppins-Regular';
+  // width: 300px;
+}
+
+option {
+  font-family: 'Poppins-Regular';
+  color: #212145;
+}

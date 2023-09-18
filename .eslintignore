@@ -1,0 +1,11 @@
+node_modules/
+src/main/docker/
+src/test/javascript/protractor.conf.js
+src/test/javascript/jest.conf.js
+webpack/
+target/
+build/
+node/
+src/main/webapp/app/modules/fundWallet/inline.js
+src/main/webapp/app/modules/fundWallet/inlinescript.js
+postcss.config.js

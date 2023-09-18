@@ -1,0 +1,54 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1624013442474-4">
+        <createTable tableName="loan">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="loanPK"/>
+            </column>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="amount" type="FLOAT8"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="tenure" type="VARCHAR(255)"/>
+            <column name="lender_id" type="BIGINT"/>
+            <column name="profile_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1624013442474-5">
+        <addUniqueConstraint columnNames="device_id" constraintName="UC_MY_DEVICEDEVICE_ID_COL" tableName="my_device"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1624013442474-6">
+        <addUniqueConstraint columnNames="transaction_type_id" constraintName="UK_muswsgteu9ukkb6yf3q5slwo3"
+                             tableName="approval_workflow"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1624013442474-7">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="loan"
+                                 constraintName="FK7rbi0aeajb4qanysrcjvij2g3" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1624013442474-8">
+        <addForeignKeyConstraint baseColumnNames="lender_id" baseTableName="loan"
+                                 constraintName="FKeafnasv5lum8xij1goylepmyb" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lender"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1624013442474-9">
+        <addForeignKeyConstraint baseColumnNames="biller_platform_id" baseTableName="biller_custom_field_option"
+                                 constraintName="FKgc28hreme0j025cbul9gwe3o8" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id"
+                                 referencedTableName="biller_platform" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1624013442474-1">
+        <alterSequence sequenceName="sequence_generator"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1624013442474-2">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="address_type" tableName="address"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1624013442474-3">
+        <dropNotNullConstraint columnDataType="timestamp" columnName="last_login_date" tableName="my_device"/>
+    </changeSet>
+</databaseChangeLog>

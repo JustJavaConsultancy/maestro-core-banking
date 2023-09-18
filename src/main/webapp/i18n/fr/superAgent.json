@@ -1,0 +1,24 @@
+{
+  "apiGatewayApp": {
+    "superAgent": {
+      "home": {
+        "title": "SuperAgents",
+        "createLabel": "Créer un nouveau Super Agent",
+        "createOrEditLabel": "Créer ou éditer un Super Agent",
+        "notFound": "Aucun Super Agent trouvé"
+      },
+      "created": "Un nouveau Super Agent a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Super Agent avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Super Agent avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Super Agent {{ id }} ?"
+      },
+      "detail": {
+        "title": "Super Agent"
+      },
+      "status": "Status",
+      "agent": "Agent",
+      "scheme": "Scheme"
+    }
+  }
+}

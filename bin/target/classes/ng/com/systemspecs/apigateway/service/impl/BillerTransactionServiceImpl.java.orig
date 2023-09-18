@@ -1,0 +1,468 @@
+package ng.com.systemspecs.apigateway.service.impl;
+
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import ng.com.systemspecs.apigateway.domain.BillerTransaction;
+import ng.com.systemspecs.apigateway.domain.User;
+import ng.com.systemspecs.apigateway.domain.WalletAccount;
+import ng.com.systemspecs.apigateway.repository.BillerTransactionRepository;
+import ng.com.systemspecs.apigateway.repository.UserRepository;
+import ng.com.systemspecs.apigateway.service.BillerService;
+import ng.com.systemspecs.apigateway.service.BillerTransactionService;
+import ng.com.systemspecs.apigateway.service.WalletAccountService;
+import ng.com.systemspecs.apigateway.service.dto.BillerTransactionDTO;
+import ng.com.systemspecs.apigateway.service.dto.BuyAirtimeDTO;
+import ng.com.systemspecs.apigateway.service.dto.BuyDataDTO;
+import ng.com.systemspecs.apigateway.service.dto.FundDTO;
+import ng.com.systemspecs.apigateway.service.dto.GenericResponseDTO;
+import ng.com.systemspecs.apigateway.service.dto.PayRRRDTO;
+import ng.com.systemspecs.apigateway.service.dto.PaymentResponseDTO;
+import ng.com.systemspecs.apigateway.service.dto.SendMoneyDTO;
+import ng.com.systemspecs.apigateway.service.dto.UtilDTO;
+import ng.com.systemspecs.apigateway.service.kafka.producer.TransProducer;
+import ng.com.systemspecs.apigateway.service.mapper.BillerTransactionMapper;
+import ng.com.systemspecs.apigateway.util.Utility;
+import ng.com.systemspecs.remitabillinggateway.billers.GetBillerResponse;
+import ng.com.systemspecs.remitabillinggateway.billers.GetBillerResponseData;
+import ng.com.systemspecs.remitabillinggateway.customfields.GetCustomFieldResponse;
+import ng.com.systemspecs.remitabillinggateway.generaterrr.GenerateResponse;
+import ng.com.systemspecs.remitabillinggateway.notification.BillNotificationResponse;
+import ng.com.systemspecs.remitabillinggateway.notification.BillRequest;
+import ng.com.systemspecs.remitabillinggateway.paymentstatus.GetTransactionStatusResponse;
+import ng.com.systemspecs.remitabillinggateway.rrrdetails.GetRRRDetailsResponse;
+import ng.com.systemspecs.remitabillinggateway.service.RemitaBillingGatewayService;
+import ng.com.systemspecs.remitabillinggateway.service.impl.RemitaBillingGatewayServiceImpl;
+import ng.com.systemspecs.remitabillinggateway.servicetypes.GetServiceResponse;
+import ng.com.systemspecs.remitabillinggateway.servicetypes.GetServiceResponseData;
+import ng.com.systemspecs.remitabillinggateway.util.EnvironmentType;
+import ng.com.systemspecs.remitabillinggateway.validate.CustomField;
+import ng.com.systemspecs.remitabillinggateway.validate.ValidateRequest;
+import ng.com.systemspecs.remitabillinggateway.validate.ValidateResponse;
+import ng.com.systemspecs.remitabillinggateway.validate.Value;
+import ng.com.systemspecs.remitabillinggateway.configuration.Environment;
+import ng.com.systemspecs.remitabillinggateway.configuration.Credentials;
+
+
+/**
+ * Service Implementation for managing {@link BillerTransaction}.
+ */
+@Service
+@Transactional
+public class BillerTransactionServiceImpl implements BillerTransactionService {
+
+    private final Logger log = LoggerFactory.getLogger(BillerTransactionServiceImpl.class);
+
+    private static final long Lower_Bond = 10000000000L;
+    private static final long Upper_Bond = 90000000000L;
+
+    private final BillerTransactionRepository billerTransactionRepository;
+
+    private final BillerTransactionMapper billerTransactionMapper;
+    private final TransProducer producer;
+    private final BillerService billerService;
+    private final Utility utility;
+    private final UserRepository userRepository;
+    private final WalletAccountService walletAccountService;
+    private User theUser;
+
+
+
+    private  String  payNotfyTransId  = "";
+
+
+    public BillerTransactionServiceImpl(BillerTransactionRepository billerTransactionRepository,
+                                        BillerTransactionMapper billerTransactionMapper,
+                                        TransProducer producer, BillerService billerService, Utility utility, UserRepository userRepository,
+                                        WalletAccountService walletAccountService) {
+        this.billerTransactionRepository = billerTransactionRepository;
+        this.billerTransactionMapper = billerTransactionMapper;
+        this.producer = producer;
+        this.billerService = billerService;
+        this.utility = utility;
+        this.userRepository = userRepository;
+        this.walletAccountService = walletAccountService;
+    }
+
+    @Override
+    public   RemitaBillingGatewayService  getRemitaBillingGatewayService() {
+        Credentials credentials = new Credentials();
+        credentials.setPublicKey("dC5vbW9udWJpQGdtYWlsLmNvbXxiM2RjMDhjZDRlZTc5ZDIxZDQwMjdjOWM3MmI5ZWY0ZDA3MTk2YTRkNGRkMjY3NjNkMGZkYzA4MjM1MzI4OWFhODE5OGM4MjM0NTI2YWI2ZjZkYzNhZmQzNDNkZmIzYmUwNTkxODlmMmNkOTkxNmM5MjVhNjYwZjk0ZTk1OTkwNw==");
+        credentials.setEnvironment(EnvironmentType.DEMO);
+        //  credentials.setTransactionId("857899");
+        credentials.setTransactionId(String.valueOf(ThreadLocalRandom.current().nextLong(Lower_Bond, Upper_Bond)));
+        credentials.setSecretKey("98778887778");
+        log.debug("Transaction Id = " + credentials.getTransactionId());
+        payNotfyTransId = credentials.getTransactionId();
+        return new RemitaBillingGatewayServiceImpl(credentials);
+    }
+
+
+    @Override
+    public   RemitaBillingGatewayService  notifyBillingGatewayService() {
+        Credentials credentials = new Credentials();
+        credentials.setPublicKey("dC5vbW9udWJpQGdtYWlsLmNvbXxiM2RjMDhjZDRlZTc5ZDIxZDQwMjdjOWM3MmI5ZWY0ZDA3MTk2YTRkNGRkMjY3NjNkMGZkYzA4MjM1MzI4OWFhODE5OGM4MjM0NTI2YWI2ZjZkYzNhZmQzNDNkZmIzYmUwNTkxODlmMmNkOTkxNmM5MjVhNjYwZjk0ZTk1OTkwNw==");
+        credentials.setSecretKey("95ab7ab7b2dc3152e3ab776c8f4bbe0ec5fe87526ee129617f319fb9edf79263a6fd15f1efe78f38ad6f04634dff993ccf9f075bf91f37aa52b61a9bd61c881e");
+        credentials.setTransactionId(String.valueOf(System.currentTimeMillis()));
+        credentials.setEnvironment(EnvironmentType.DEMO);
+        log.debug("Transaction Id = "+credentials.getTransactionId());
+
+        return new RemitaBillingGatewayServiceImpl(credentials);
+    }
+
+
+
+
+    @Override
+    public BillerTransactionDTO save(BillerTransactionDTO billerTransactionDTO) {
+        log.debug("Request to save BillerTransaction : {}", billerTransactionDTO);
+        BillerTransaction billerTransaction = billerTransactionMapper.toEntity(billerTransactionDTO);
+        billerTransaction = billerTransactionRepository.save(billerTransaction);
+        return billerTransactionMapper.toDto(billerTransaction);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<BillerTransactionDTO> findAll(Pageable pageable) {
+        log.debug("Request to get all BillerTransactions");
+        return billerTransactionRepository.findAll(pageable)
+            .map(billerTransactionMapper::toDto);
+    }
+
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<BillerTransactionDTO> findOne(Long id) {
+        log.debug("Request to get BillerTransaction : {}", id);
+        return billerTransactionRepository.findById(id)
+            .map(billerTransactionMapper::toDto);
+    }
+
+    @Override
+    public void delete(Long id) {
+        log.debug("Request to delete BillerTransaction : {}", id);
+        billerTransactionRepository.deleteById(id);
+    }
+
+
+    @Override
+    public GetRRRDetailsResponse getRRRDetails(String rrr) {
+    	RemitaBillingGatewayService  gatewayService =  getRemitaBillingGatewayService();
+        return gatewayService.getRRRDetails(rrr);
+    }
+
+    @Override
+    public ValidateResponse validate(ValidateRequest validateRequest){
+    	RemitaBillingGatewayService  gatewayService =  getRemitaBillingGatewayService();
+        return gatewayService.validate(validateRequest);
+    }
+
+    @Override
+    public GenerateResponse generateRRR(ValidateRequest validateRequest) {
+        RemitaBillingGatewayService gatewayService = getRemitaBillingGatewayService();
+        return gatewayService.generateRRR(validateRequest);
+    }
+
+    @Override
+    public GenericResponseDTO   payRRR(PayRRRDTO   payRRRDTO) {
+    	  WalletAccount account = walletAccountService.findOneByAccountNumber(payRRRDTO.getSourceAccountNo());
+
+         if (account ==  null  || account.getCurrentBalance()  <  payRRRDTO.getAmount()) {
+         	return new GenericResponseDTO("15", HttpStatus.OK, "Insufficient fund in wallet account", null);
+         }
+
+		   // credit billers account
+         // debit wallet scheme's bank account
+
+            BillRequest billRequest  =  new BillRequest();
+           billRequest.setRrr(payRRRDTO.getRrr());
+           billRequest.setAmountDebitted(String.valueOf(payRRRDTO.getAmount()));
+           billRequest.setDebittedAccount(String.valueOf(payRRRDTO.getSourceAccountNo()));
+           billRequest.setBranchCode("546789096");
+           billRequest.setFundingSource("TOKS");
+           billRequest.setIncomeAccount("0001061499");
+           billRequest.setTellerName("INTERNETBANKING");
+           billRequest.setPaymentChannel("INTERNETBANKING");
+           billRequest.setPaymentAuthCode("5467890968");
+
+    	return billNotification(billRequest);
+    }
+
+
+    private GenericResponseDTO billNotification(BillRequest billRequest) {
+    	ObjectMapper objectMapper = new ObjectMapper();
+    	PaymentResponseDTO   responseDTO  =  new  PaymentResponseDTO();
+        FundDTO fundDTO = new FundDTO();
+        BillNotificationResponse notifyResposne = null;
+
+        Credentials credentials = new Credentials();
+        credentials.setPublicKey("dC5vbW9udWJpQGdtYWlsLmNvbXxiM2RjMDhjZDRlZTc5ZDIxZDQwMjdjOWM3MmI5ZWY0ZDA3MTk2YTRkNGRkMjY3NjNkMGZkYzA4MjM1MzI4OWFhODE5OGM4MjM0NTI2YWI2ZjZkYzNhZmQzNDNkZmIzYmUwNTkxODlmMmNkOTkxNmM5MjVhNjYwZjk0ZTk1OTkwNw==");
+        credentials.setSecretKey("95ab7ab7b2dc3152e3ab776c8f4bbe0ec5fe87526ee129617f319fb9edf79263a6fd15f1efe78f38ad6f04634dff993ccf9f075bf91f37aa52b61a9bd61c881e");
+        credentials.setTransactionId(String.valueOf(System.currentTimeMillis()));
+        credentials.setEnvironment(EnvironmentType.DEMO);
+        log.debug("Transaction Id = " + credentials.getTransactionId());
+
+        RemitaBillingGatewayService gatewayService = new RemitaBillingGatewayServiceImpl(credentials);
+
+        String amount = billRequest.getAmountDebitted();
+        String debitAccount = billRequest.getDebittedAccount();
+        String creditAccount = billRequest.getIncomeAccount();
+        String channel = billRequest.getPaymentChannel();
+
+         try {
+		        	  log.debug("billRequest  = " + objectMapper.writeValueAsString(billRequest));
+		        	   // notifyResposne = gatewayService.billNotification(billRequest);
+		        	  {
+			        	  notifyResposne =  new  BillNotificationResponse();
+			        	  notifyResposne.setResponseCode("00");
+		        	  }
+
+		               log.debug("billNotificationResponse  = " + objectMapper.writeValueAsString(notifyResposne));
+		        }catch(Exception ex) {
+		        	ex.printStackTrace();
+		        }
+
+		        responseDTO.setCode(notifyResposne.getResponseCode());
+		        responseDTO.setMessage(notifyResposne.getResponseMsg());
+
+		        if (notifyResposne.getResponseCode().equals("00")) {
+		        	fundDTO.setAccountNumber(Long.valueOf(creditAccount));
+		        	fundDTO.setDestBankCode("546789096");
+		        	fundDTO.setAmount(Double.valueOf(amount));
+		        	fundDTO.setChannel("WalletToBank");
+		        	fundDTO.setSourceAccountNumber(debitAccount);
+
+		            producer.send(fundDTO);
+		            return  new GenericResponseDTO("00", HttpStatus.OK, "RRR payment successful", null);
+		        }
+		        return  new GenericResponseDTO("19", HttpStatus.EXPECTATION_FAILED, "Error during rrr payment processing", null);
+
+
+    }
+
+
+    @Override
+    public GenericResponseDTO buyAirtime(BuyAirtimeDTO buyAirtimeDTO) {
+        // return  MockData.buyAirtime(buyAirtimeDTO);
+      ValidateRequest validateRequest = new ValidateRequest();
+
+        if(!StringUtils.isEmpty(buyAirtimeDTO.getCustomFieldId())){
+	        List<CustomField> customFieldList = new ArrayList<>();
+	        List<Value> valueList = new ArrayList<>();
+	        {
+	            Value value = new Value();
+	            CustomField customField = new CustomField();
+	            {
+	                value.setAmount(BigDecimal.valueOf(buyAirtimeDTO.getAmount()));
+	                value.setQuantity(0);
+	                value.setValue("0");
+	                valueList.add(value);
+	                customField.setId(buyAirtimeDTO.getCustomFieldId());
+	                customField.setValues(valueList);
+	                customFieldList.add(customField);
+	            }
+	        }
+	        validateRequest.setCustomFields(customFieldList);
+        }
+        validateRequest.setAmount(BigDecimal.valueOf(buyAirtimeDTO.getAmount()));
+        validateRequest.setBillId(buyAirtimeDTO.getServiceId());
+        validateRequest.setCurrency("NGN");
+        User currentUser = utility.getCurrentUser();
+        validateRequest.setPayerEmail(currentUser.getEmail());
+        validateRequest.setPayerName(currentUser.getFirstName() + " " + currentUser.getLastName());
+        validateRequest.setPayerPhone(buyAirtimeDTO.getPhoneNumber());
+        return this.validateAndPayBiller(validateRequest, buyAirtimeDTO.getSourceAccountNo());
+    }
+
+
+    @Override
+    public GenericResponseDTO buyData(BuyDataDTO buyDataDTO) {
+        // return    MockData.buyData(buyDataDTO);
+        ValidateRequest validateRequest = new ValidateRequest();
+        List<CustomField> customFieldList = new ArrayList<>();
+        List<Value> valueList = new ArrayList<>();
+        {
+            Value value = new Value();
+            CustomField customField = new CustomField();
+            {
+                value.setAmount(BigDecimal.valueOf(buyDataDTO.getAmount()));
+                value.setQuantity(1);
+                value.setValue(buyDataDTO.getDataPlanId());
+                valueList.add(value);
+                customField.setId(buyDataDTO.getDataPlanId());
+                customField.setValues(valueList);
+                customFieldList.add(customField);
+            }
+        }
+        validateRequest.setCustomFields(customFieldList);
+        validateRequest.setAmount(BigDecimal.valueOf(buyDataDTO.getAmount()));
+        validateRequest.setBillId(buyDataDTO.getServiceId());
+        validateRequest.setCurrency("NGN");
+        User currentUser = utility.getCurrentUser();
+        validateRequest.setPayerEmail(currentUser.getEmail());
+        validateRequest.setPayerName(currentUser.getFirstName() + " " + currentUser.getLastName());
+        validateRequest.setPayerPhone(buyDataDTO.getPhoneNumber());
+        return this.validateAndPayBiller(validateRequest, buyDataDTO.getSourceAccountNo());
+
+    }
+
+
+
+    public GenericResponseDTO validateAndPayBiller(ValidateRequest validateRequest, Long  sourceAccountNumber) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        BigDecimal amount = validateRequest.getAmount();
+
+        WalletAccount account = walletAccountService.findOneByAccountNumber(sourceAccountNumber);
+
+        if (account ==  null  || account.getCurrentBalance()  <  Double.valueOf(String.valueOf(amount))) {
+        	return new GenericResponseDTO("15", HttpStatus.OK, "Insufficient fund in wallet account", null);
+        }
+
+        ValidateResponse validateResponse = this.validate(validateRequest);
+        try {
+            log.debug("validateRequest 1  = " + objectMapper.writeValueAsString(validateRequest));
+            log.debug("validateResponse  = " + objectMapper.writeValueAsString(validateResponse));
+
+            if (validateResponse != null && validateResponse.getResponseCode().equals("00")) {
+                GenerateResponse generateResponse = this.generateRRR(validateRequest);
+                log.debug("generateResponse  = " + objectMapper.writeValueAsString(generateResponse));
+                if (generateResponse != null && generateResponse.getResponseCode().equals("00")) {
+                    BillRequest billRequest = new BillRequest();
+                    billRequest.setRrr((generateResponse.getResponseData().get(0)).getRrr());
+                     // credit billers account
+                     // debit wallet scheme's bank account
+                    billRequest.setAmountDebitted(String.valueOf(amount));
+                    billRequest.setDebittedAccount(String.valueOf(sourceAccountNumber));
+                    billRequest.setBranchCode("546789096");
+                    billRequest.setFundingSource("TOKS");
+                    billRequest.setIncomeAccount("0001061499");
+                    billRequest.setTellerName("INTERNETBANKING");
+                    billRequest.setPaymentChannel("INTERNETBANKING");
+                    billRequest.setPaymentAuthCode("5467890968");
+                    log.debug("billNotificationRequest X  = " + objectMapper.writeValueAsString(billRequest));
+
+                    GenericResponseDTO    genericResponseOne   = this.billNotification(billRequest);
+                    if (genericResponseOne != null && genericResponseOne.getCode().equals("00")) {
+						return new GenericResponseDTO("00", HttpStatus.OK, "Biller payment successfull", null);
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return new GenericResponseDTO("78", HttpStatus.REQUEST_TIMEOUT, "failed", null);
+    }
+
+
+
+
+    @Override
+    public List<GetBillerResponseData> getBillers() {
+        GetBillerResponse billers = getRemitaBillingGatewayService().getBillers();
+        if (billers.getResponseCode().equalsIgnoreCase("00")) {
+            return billers.getResponseData();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<GetServiceResponseData> getService(String billerId) {
+        RemitaBillingGatewayService remitaBillingGatewayService = getRemitaBillingGatewayService();
+        log.info("remitaBillingGatewayService ===++++==== " + remitaBillingGatewayService);
+        if (remitaBillingGatewayService == null) {
+            log.info("ERROR +++++ =============== ERROOR");
+        }
+
+        GetServiceResponse serviceResponse = Objects.requireNonNull(remitaBillingGatewayService).getService(billerId);
+        log.info(String.valueOf(serviceResponse));
+
+        if (serviceResponse.getResponseCode().equals("00")) {
+            return serviceResponse.getResponseData().get(0);
+        }
+
+        return null;
+    }
+
+    @Override
+    public GetCustomFieldResponse getCustomField(String serviceTypeId) throws Exception {
+        RemitaBillingGatewayService remitaBillingGatewayService = getRemitaBillingGatewayService();
+        if (remitaBillingGatewayService != null) {
+            GetCustomFieldResponse customFieldResponse = remitaBillingGatewayService.getCustomField(serviceTypeId);
+            log.info("CUSTOM SERVICE " + customFieldResponse);
+
+            if (customFieldResponse != null && customFieldResponse.getResponseCode().equalsIgnoreCase("00")) {
+                return customFieldResponse;
+            } else {
+                return null;
+            }
+        }
+
+        return null;
+    }
+
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c7a6acf9854abb8b98bb863697e04850c20d2523
+    @Override
+    public GetTransactionStatusResponse getTransactionStatus(String transactionId) {
+
+        RemitaBillingGatewayService gatewayService = getRemitaBillingGatewayService();
+        return gatewayService.getTransactionStatus(transactionId);
+    }
+
+
+
+	    @Override
+    public GenericResponseDTO payForUtils(UtilDataDTO utilDTO) {
+
+        ValidateRequest validateRequest = new ValidateRequest();
+
+        if(!StringUtils.isEmpty(utilDTO.getCustomFieldId())){
+	        List<CustomField> customFieldList = new ArrayList<>();
+	        List<Value> valueList = new ArrayList<>();
+	        {
+	            Value value = new Value();
+	            CustomField customField = new CustomField();
+	            {
+	                value.setAmount(BigDecimal.valueOf(utilDTO.getAmount()));
+	                value.setQuantity(0);
+	                value.setValue("0");
+	                valueList.add(value);
+	                customField.setId(utilDTO.getCustomFieldId());
+	                customField.setValues(valueList);
+	                customFieldList.add(customField);
+	            }
+	        }
+	        validateRequest.setCustomFields(customFieldList);
+        }
+        validateRequest.setAmount(BigDecimal.valueOf(utilDTO.getAmount()));
+        validateRequest.setBillId(utilDTO.getServiceId());
+        validateRequest.setCurrency("NGN");
+        User currentUser = utility.getCurrentUser();
+        validateRequest.setPayerEmail(currentUser.getEmail());
+        validateRequest.setPayerName(currentUser.getFirstName() + " " + currentUser.getLastName());
+        validateRequest.setPayerPhone(utilDTO.getPhoneNumber());
+        return this.validateAndPayBiller(validateRequest, utilDTO.getSourceAccountNo());
+    }
+
+
+}

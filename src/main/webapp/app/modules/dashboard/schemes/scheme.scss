@@ -1,0 +1,20 @@
+.sendMoneyConnector input,
+.sendMoneyConnector select {
+  margin-bottom: 20px;
+}
+
+.scheme_display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // margin-top: 2rem;
+
+  h6 {
+    font-weight: bold;
+    font-weight: 1.1rem;
+  }
+}
+
+.scheme_hr {
+  border-bottom: 10px solid #f2f5fb;
+}

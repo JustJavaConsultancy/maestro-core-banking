@@ -1,0 +1,33 @@
+#main_card {
+  padding: 0 2rem 0 0;
+}
+
+#main_card-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 4.5rem;
+}
+
+.content-style {
+  margin: 0 1.3rem 2rem;
+}
+
+#main_card-content {
+  //   padding: 0 2rem;
+  //   width: 90%;
+}
+
+.view_scheme-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  .view_scheme-img {
+    margin-right: 0.5rem;
+    img {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.pass-btn {
+  border: none;
+  padding: 0.5rem 0.875rem;
+  min-height: 25px;
+  background: hsl(211, 54%, 51%);
+  color: #fff;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+  &:hover {
+    background: hsl(211, 54%, 36%);
+  }
+}
+
+.show-pass {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+}
+
+.msg-confirm {
+  font-weight: bold;
+  color: hsl(211, 54%, 51%);
+}
+
+.btn-continue {
+  background-color: hsl(110, 100%, 33%);
+  margin-right: 1rem;
+
+  &:hover {
+    background: hsl(110, 100%, 25%);
+  }
+}
+.btn-cancel {
+  background-color: hsl(0, 100%, 43%);
+
+  &:hover {
+    background: hsl(0, 100%, 35%);
+  }
+}

@@ -1,0 +1,344 @@
+[2020-11-27 20:01:29,466 INFO root] Taurus CLI Tool v1.15.1
+[2020-11-27 20:01:29,467 DEBUG root] Build: 13973 Fri Oct 30 09:16:46 UTC 2020
+[2020-11-27 20:01:29,467 DEBUG root] Extended git info:  3fecb4b9 Release 1.15.1 (#1420)
+[2020-11-27 20:01:29,467 DEBUG root] Command-line options: {'log': 'C:\\Users\\ABDULW~1\\AppData\\Local\\Temp\\bzt_1el4i68b.log', 'option': None, 'quiet': None, 'verbose': None, 'no_system_configs': None, 'aliases': ['report']}
+[2020-11-27 20:01:29,467 DEBUG root] Python: CPython 3.7.5
+[2020-11-27 20:01:29,467 DEBUG root] OS: uname_result(system='Windows', node='DESKTOP-BS6CLSR', release='10', version='10.0.18362', machine='AMD64', processor='Intel64 Family 6 Model 142 Stepping 12, GenuineIntel')
+[2020-11-27 20:01:29,477 INFO root] Starting with configs: ['gatling-req-jmeter.yml']
+[2020-11-27 20:01:29,478 DEBUG root] Using personal config: C:\Users\ABDULWASIU-MORONKOLA\.bzt-rc
+[2020-11-27 20:01:29,478 INFO Engine] Configuring...
+[2020-11-27 20:01:29,510 DEBUG Engine] Base configs list: ['C:\\Users\\ABDULWASIU-MORONKOLA\\AppData\\Local\\Taurus\\pkgs\\bzt\\resources/10-base-config.yml']
+[2020-11-27 20:01:29,510 DEBUG Engine.Configuration] Configs: ['C:\\Users\\ABDULWASIU-MORONKOLA\\AppData\\Local\\Taurus\\pkgs\\bzt\\resources/10-base-config.yml']
+[2020-11-27 20:01:29,510 DEBUG Engine.Configuration] Reading C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\resources/10-base-config.yml as YAML
+[2020-11-27 20:01:29,527 DEBUG Engine] User configs list: ['C:\\Users\\ABDULWASIU-MORONKOLA\\.bzt-rc', 'gatling-req-jmeter.yml']
+[2020-11-27 20:01:29,527 DEBUG Engine.Configuration] Configs: ['C:\\Users\\ABDULWASIU-MORONKOLA\\.bzt-rc', 'gatling-req-jmeter.yml']
+[2020-11-27 20:01:29,528 DEBUG Engine.Configuration] Reading C:\Users\ABDULWASIU-MORONKOLA\.bzt-rc as YAML
+[2020-11-27 20:01:29,531 DEBUG Engine.Configuration] Reading gatling-req-jmeter.yml as YAML
+[2020-11-27 20:01:29,534 DEBUG Engine.Configuration] Configs: ['C:\\Users\\ABDULWASIU-MORONKOLA\\.bzt-rc', 'gatling-req-jmeter.yml']
+[2020-11-27 20:01:29,535 DEBUG Engine.Configuration] Reading C:\Users\ABDULWASIU-MORONKOLA\.bzt-rc as YAML
+[2020-11-27 20:01:29,537 DEBUG Engine.Configuration] Reading gatling-req-jmeter.yml as YAML
+[2020-11-27 20:01:29,542 DEBUG Engine] Requesting updates info: https://gettaurus.org/updates/?version=1.15.1&installID=windows-105baddec616
+[2020-11-27 20:01:29,543 INFO Engine] Artifacts dir: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689
+[2020-11-27 20:01:29,543 DEBUG HTTPClient] Making HTTP request GET https://gettaurus.org/updates/?version=1.15.1&installID=windows-105baddec616
+[2020-11-27 20:01:29,545 DEBUG urllib3.connectionpool] Starting new HTTPS connection (1): gettaurus.org:443
+[2020-11-27 20:01:29,546 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\effective
+[2020-11-27 20:01:29,547 DEBUG Engine.Configuration] Dumping YAML config into C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\effective.yml
+[2020-11-27 20:01:29,561 DEBUG Engine.Configuration] Dumping JSON config into C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\effective.json
+[2020-11-27 20:01:29,564 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\merged.yml
+[2020-11-27 20:01:29,565 DEBUG Engine.Configuration] Dumping YAML config into C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\merged.yml
+[2020-11-27 20:01:29,569 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\merged.json
+[2020-11-27 20:01:29,569 DEBUG Engine.Configuration] Dumping JSON config into C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\merged.json
+[2020-11-27 20:01:29,571 DEBUG Engine] Add existing artifact (move=False): gatling-req-jmeter.yml
+[2020-11-27 20:01:29,571 DEBUG Engine] Copying gatling-req-jmeter.yml to C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\gatling-req-jmeter.yml
+[2020-11-27 20:01:29,573 DEBUG Engine] Set PYTHONPATH to 'C:\Users\ABDULWASIU-MORONKOLA\.bzt\python-packages\3.7.5' + 'C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\python-packages\3.7.5' + C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs;C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs;
+[2020-11-27 20:01:29,573 DEBUG Engine] Content of user packages dir: %s
+[2020-11-27 20:01:29,573 DEBUG Engine] OS env: OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+[2020-11-27 20:01:29,573 DEBUG Engine] OS env: TAURUS_ARTIFACTS_DIR=C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689
+[2020-11-27 20:01:29,573 DEBUG root] Closing log handler: C:\Users\ABDULW~1\AppData\Local\Temp\bzt_1el4i68b.log
+[2020-11-27 20:01:29,575 DEBUG root] Switched writing logs to C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\bzt.log
+[2020-11-27 20:01:29,576 DEBUG root] Linting config
+[2020-11-27 20:01:29,578 WARNING root] at path 'execution': 'execution' should be a list
+[2020-11-27 20:01:29,578 INFO Engine] Preparing...
+[2020-11-27 20:01:29,579 DEBUG Engine] Module config: consolidator {'class': 'bzt.modules.aggregator.ConsolidatingAggregator'}
+[2020-11-27 20:01:29,579 DEBUG root] Importing module: bzt.modules.aggregator
+[2020-11-27 20:01:29,672 DEBUG root] Loading class: 'ConsolidatingAggregator' from <module 'bzt.modules.aggregator' from 'C:\\Users\\ABDULWASIU-MORONKOLA\\AppData\\Local\\Taurus\\pkgs\\bzt\\modules\\aggregator.py'>
+[2020-11-27 20:01:29,672 DEBUG Engine.consolidator] Buffer scaling setup: percentile 95.0 from [0.0, 50.0, 90.0, 95.0, 99.0, 99.9, 100.0] selected
+[2020-11-27 20:01:29,672 DEBUG Engine] Module config: monitoring {'class': 'bzt.modules.monitoring.Monitoring'}
+[2020-11-27 20:01:29,672 DEBUG root] Importing module: bzt.modules.monitoring
+[2020-11-27 20:01:29,673 DEBUG root] Loading class: 'Monitoring' from <module 'bzt.modules.monitoring' from 'C:\\Users\\ABDULWASIU-MORONKOLA\\AppData\\Local\\Taurus\\pkgs\\bzt\\modules\\monitoring.py'>
+[2020-11-27 20:01:29,673 DEBUG Engine] Module config: local {'class': 'bzt.modules.provisioning.Local'}
+[2020-11-27 20:01:29,673 DEBUG root] Importing module: bzt.modules.provisioning
+[2020-11-27 20:01:29,673 DEBUG root] Loading class: 'Local' from <module 'bzt.modules.provisioning' from 'C:\\Users\\ABDULWASIU-MORONKOLA\\AppData\\Local\\Taurus\\pkgs\\bzt\\modules\\provisioning.py'>
+[2020-11-27 20:01:29,673 DEBUG Engine] Module config: jmeter {'class': 'bzt.modules.jmeter.JMeterExecutor', 'protocol-handlers': {'http': 'bzt.jmx.http.HTTPProtocolHandler'}, 'plugins': ['jpgc-casutg', 'jpgc-dummy', 'jpgc-ffw', 'jpgc-fifo', 'jpgc-functions', 'jpgc-json', 'jpgc-perfmon', 'jpgc-prmctl', 'jpgc-tst'], 'properties': {'jmeter.save.saveservice.autoflush': 'true', 'jmeter.save.saveservice.connect_time': 'true', 'jmeterengine.force.system.exit': 'true', 'summariser.name': ''}}
+[2020-11-27 20:01:29,674 DEBUG root] Importing module: bzt.modules.jmeter
+[2020-11-27 20:01:29,681 DEBUG root] Loading class: 'JMeterExecutor' from <module 'bzt.modules.jmeter' from 'C:\\Users\\ABDULWASIU-MORONKOLA\\AppData\\Local\\Taurus\\pkgs\\bzt\\modules\\jmeter.py'>
+[2020-11-27 20:01:29,681 DEBUG Engine.local] Preparing executor: jmeter/1904734458632
+[2020-11-27 20:01:29,682 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\jmeter.log
+[2020-11-27 20:01:29,682 DEBUG Engine.jmeter] Checking if port 4445 is free
+[2020-11-27 20:01:41,560 DEBUG Engine.jmeter] Port 4445 is free
+[2020-11-27 20:01:41,561 DEBUG Engine.jmeter] Using port 4445 for management
+[2020-11-27 20:01:41,562 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\requests.jmx
+[2020-11-27 20:01:41,566 DEBUG root] Importing module: bzt.jmx.http
+[2020-11-27 20:01:41,569 DEBUG root] Loading class: 'HTTPProtocolHandler' from <module 'bzt.jmx.http' from 'C:\\Users\\ABDULWASIU-MORONKOLA\\AppData\\Local\\Taurus\\pkgs\\bzt\\jmx\\http.py'>
+[2020-11-27 20:01:41,577 DEBUG JMeterScenarioBuilder] Saving JMX to: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\requests.jmx
+[2020-11-27 20:01:41,578 DEBUG HTTPClient] Request resulted in exception: Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\util\connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "D:\obj\windows-release\37amd64_Release\msi_python\zip_amd64\socket.py", line 748, in getaddrinfo
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connection.py", line 309, in connect
+    conn = self._new_conn()
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x000001BB421D7508>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\util\retry.py", line 446, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='gettaurus.org', port=443): Max retries exceeded with url: /updates/?version=1.15.1&installID=windows-105baddec616 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001BB421D7508>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\utils.py", line 1221, in request
+    return self.session.request(method, url, *args, **kwargs)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='gettaurus.org', port=443): Max retries exceeded with url: /updates/?version=1.15.1&installID=windows-105baddec616 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001BB421D7508>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+[2020-11-27 20:01:41,582 DEBUG Engine] Failed to check for updates: Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\util\connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "D:\obj\windows-release\37amd64_Release\msi_python\zip_amd64\socket.py", line 748, in getaddrinfo
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connection.py", line 309, in connect
+    conn = self._new_conn()
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x000001BB421D7508>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\util\retry.py", line 446, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='gettaurus.org', port=443): Max retries exceeded with url: /updates/?version=1.15.1&installID=windows-105baddec616 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001BB421D7508>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\utils.py", line 1221, in request
+    return self.session.request(method, url, *args, **kwargs)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='gettaurus.org', port=443): Max retries exceeded with url: /updates/?version=1.15.1&installID=windows-105baddec616 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001BB421D7508>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\engine\engine.py", line 713, in _check_updates
+    response = client.request('GET', addr, timeout=10)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\utils.py", line 1228, in request
+    raise TaurusNetworkError(msg)
+bzt.TaurusNetworkError: Request to https://gettaurus.org/updates/?version=1.15.1&installID=windows-105baddec616 failed
+
+[2020-11-27 20:01:41,582 DEBUG Engine.jmeter] Additional system properties {'sun.net.inetaddr.ttl': 0}
+[2020-11-27 20:01:41,583 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\system.properties
+[2020-11-27 20:01:41,582 WARNING Engine] Failed to check for updates
+[2020-11-27 20:01:41,585 DEBUG Engine.jmeter] Additional properties: {'jmeter.save.saveservice.autoflush': 'true', 'jmeter.save.saveservice.connect_time': 'true', 'jmeterengine.force.system.exit': 'true', 'summariser.name': '', 'jmeterengine.nongui.port': 4445, 'jmeterengine.nongui.maxport': 4445, 'jmeter.save.saveservice.timestamp_format': 'ms', 'sampleresult.default.encoding': 'UTF-8', 'user.classpath': 'C:/Users/ABDULWASIU-MORONKOLA/IdeaProjects/systemspecs/gateway/src/main/resources/config/2020-11-27_20-01-29.543689;C:/Users/ABDULWASIU-MORONKOLA/IdeaProjects/systemspecs/gateway/src/main/resources/config/2020-11-27_20-01-29.543689'}
+[2020-11-27 20:01:41,585 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\jmeter-bzt.properties
+[2020-11-27 20:01:41,587 DEBUG Engine.jmeter.JavaVM] Trying JavaVM: ['java', '-version']
+[2020-11-27 20:01:41,587 DEBUG root] Executing shell: ['java', '-version'] at .
+[2020-11-27 20:01:41,656 DEBUG Engine.jmeter.JavaVM] JavaVM output: java version "1.8.0_271"
+Java(TM) SE Runtime Environment (build 1.8.0_271-b09)
+Java HotSpot(TM) 64-Bit Server VM (build 25.271-b09, mixed mode)
+
+[2020-11-27 20:01:41,656 DEBUG Engine.jmeter.TclLibrary] Checking if TCL_LIBRARY variable is present in environment
+[2020-11-27 20:01:41,656 DEBUG Engine.jmeter.TclLibrary] TCL_LIBRARY environment variable is present
+[2020-11-27 20:01:41,657 DEBUG Engine.jmeter.JMeter] Trying JMeter..
+[2020-11-27 20:01:41,657 DEBUG root] Executing shell: ['C:\\Users\\ABDULWASIU-MORONKOLA\\.bzt\\jmeter-taurus\\5.2.1\\bin\\jmeter.bat', '-j', 'C:\\Users\\ABDULW~1\\AppData\\Local\\Temp\\jmeterr7kxc41olog', '--version'] at .
+[2020-11-27 20:01:42,874 DEBUG Engine.jmeter.JMeter] JMeter check:     _    ____   _    ____ _   _ _____       _ __  __ _____ _____ _____ ____
+   / \  |  _ \ / \  / ___| | | | ____|     | |  \/  | ____|_   _| ____|  _ \
+  / _ \ | |_) / _ \| |   | |_| |  _|    _  | | |\/| |  _|   | | |  _| | |_) |
+ / ___ \|  __/ ___ \ |___|  _  | |___  | |_| | |  | | |___  | | | |___|  _ <
+/_/   \_\_| /_/   \_\____|_| |_|_____|  \___/|_|  |_|_____| |_| |_____|_| \_\ 5.2.1
+
+Copyright (c) 1999-2019 The Apache Software Foundation
+
+ / 
+[2020-11-27 20:01:42,876 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\kpi.jtl
+[2020-11-27 20:01:42,877 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\error.jtl
+[2020-11-27 20:01:42,877 DEBUG Engine.jmeter.LoadSettingsProcessor] Load: LoadSpec(concurrency=10, throughput=None, ramp_up=30.0, hold=120.0, iterations=0, duration=150.0, steps=None)
+[2020-11-27 20:01:42,878 DEBUG Engine.jmeter.LoadSettingsProcessor.ThreadGroupHandler] Converting ThreadGroup (registerdemo) to ConcurrencyThreadGroup and apply load parameters
+[2020-11-27 20:01:42,879 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\modified_requests.jmx
+[2020-11-27 20:01:42,879 DEBUG JMX] Saving JMX to: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\modified_requests.jmx
+[2020-11-27 20:01:42,881 DEBUG root] Executing shell: ['C:\\Users\\ABDULWASIU-MORONKOLA\\.bzt\\jmeter-taurus\\5.2.1\\bin\\PluginsManagerCMD.bat', 'install-for-jmx', 'C:\\Users\\ABDULWASIU-MORONKOLA\\IdeaProjects\\systemspecs\\gateway\\src\\main\\resources\\config\\2020-11-27_20-01-29.543689\\modified_requests.jmx'] at .
+[2020-11-27 20:01:44,647 WARNING Engine.jmeter.JMeter] Failed to detect plugins for C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\modified_requests.jmx: Command '['C:\\Users\\ABDULWASIU-MORONKOLA\\.bzt\\jmeter-taurus\\5.2.1\\bin\\PluginsManagerCMD.bat', 'install-for-jmx', 'C:\\Users\\ABDULWASIU-MORONKOLA\\IdeaProjects\\systemspecs\\gateway\\src\\main\\resources\\config\\2020-11-27_20-01-29.543689\\modified_requests.jmx']' returned non-zero exit status 1.
+
+>>> START OF STDOUT >>>
+2020-11-27 20:01:43,886 INFO o.j.r.PluginManagerCMD: Command is: install-for-jmx
+2020-11-27 20:01:44,205 INFO o.j.r.JARSourceHTTP: Requesting https://jmeter-plugins.org/repo/?installID=windows_10-65c6fce6f61a83d092ee93106d618c2f-nongui
+
+<<< END OF STDOUT <<<
+
+>>> START OF STDERR >>>
+ERROR: java.lang.RuntimeException: Failed to perform cmdline operation: jmeter-plugins.org
+*** Problem's technical details go below ***
+Home directory was detected as: C:\Users\ABDULWASIU-MORONKOLA\.bzt\jmeter-taurus\5.2.1\lib
+Exception in thread "main" java.lang.RuntimeException: Failed to perform cmdline operation: jmeter-plugins.org
+	at org.jmeterplugins.repository.PluginManagerCMD.processParams(PluginManagerCMD.java:100)
+	at kg.apc.cmdtools.PluginsCMD.processParams(PluginsCMD.java:62)
+	at kg.apc.cmdtools.PluginsCMD.processParams(PluginsCMD.java:21)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at kg.apc.cmd.UniversalRunner.main(UniversalRunner.java:115)
+Caused by: java.net.UnknownHostException: jmeter-plugins.org
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:263)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:162)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:326)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:605)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:440)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+	at org.jmeterplugins.repository.JARSourceHTTP.execute(JARSourceHTTP.java:499)
+	at org.jmeterplugins.repository.JARSourceHTTP.execute(JARSourceHTTP.java:494)
+	at org.jmeterplugins.repository.JARSourceHTTP.getJSON(JARSourceHTTP.java:152)
+	at org.jmeterplugins.repository.JARSourceHTTP.getRepositories(JARSourceHTTP.java:276)
+	at org.jmeterplugins.repository.JARSourceHTTP.getRepo(JARSourceHTTP.java:304)
+	at org.jmeterplugins.repository.PluginManager.load(PluginManager.java:71)
+	at org.jmeterplugins.repository.PluginManagerCMD.getPluginsManager(PluginManagerCMD.java:110)
+	at org.jmeterplugins.repository.PluginManagerCMD.installPluginsForJmx(PluginManagerCMD.java:120)
+	at org.jmeterplugins.repository.PluginManagerCMD.processParams(PluginManagerCMD.java:79)
+	... 7 more
+
+<<< END OF STDERR <<<
+
+[2020-11-27 20:01:44,652 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\jmeter.out
+[2020-11-27 20:01:44,653 DEBUG Engine] New artifact filename: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\jmeter.err
+[2020-11-27 20:01:44,653 DEBUG Engine] Module config: final-stats {'class': 'bzt.modules.reporting.FinalStatus'}
+[2020-11-27 20:01:44,654 DEBUG root] Importing module: bzt.modules.reporting
+[2020-11-27 20:01:44,662 DEBUG root] Loading class: 'FinalStatus' from <module 'bzt.modules.reporting' from 'C:\\Users\\ABDULWASIU-MORONKOLA\\AppData\\Local\\Taurus\\pkgs\\bzt\\modules\\reporting.py'>
+[2020-11-27 20:01:44,662 DEBUG Engine] Module config: console {'class': 'bzt.modules.console.ConsoleStatusReporter'}
+[2020-11-27 20:01:44,662 DEBUG root] Importing module: bzt.modules.console
+[2020-11-27 20:01:44,662 DEBUG root] Loading class: 'ConsoleStatusReporter' from <module 'bzt.modules.console' from 'C:\\Users\\ABDULWASIU-MORONKOLA\\AppData\\Local\\Taurus\\pkgs\\bzt\\modules\\console.py'>
+[2020-11-27 20:01:44,662 DEBUG Engine] Module config: blazemeter {'class': 'bzt.modules.blazemeter.BlazeMeterUploader'}
+[2020-11-27 20:01:44,662 DEBUG root] Importing module: bzt.modules.blazemeter
+[2020-11-27 20:01:44,662 DEBUG root] Loading class: 'BlazeMeterUploader' from <module 'bzt.modules.blazemeter' from 'C:\\Users\\ABDULWASIU-MORONKOLA\\AppData\\Local\\Taurus\\pkgs\\bzt\\modules\\blazemeter.py'>
+[2020-11-27 20:01:44,663 DEBUG Engine.console] Can't use 'console' screen, trying 'gui'
+[2020-11-27 20:01:44,668 WARNING Engine.blazemeter] No BlazeMeter API key provided, will upload anonymously
+[2020-11-27 20:01:44,668 DEBUG Engine.blazemeter] Installing http client
+[2020-11-27 20:01:44,668 DEBUG User] Request: GET https://a.blazemeter.com/api/v4/web/version None
+[2020-11-27 20:01:44,668 DEBUG HTTPClient] Making HTTP request GET https://a.blazemeter.com/api/v4/web/version
+[2020-11-27 20:01:44,670 DEBUG urllib3.connectionpool] Starting new HTTPS connection (1): a.blazemeter.com:443
+[2020-11-27 20:01:44,671 DEBUG HTTPClient] Request resulted in exception: Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\util\connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "D:\obj\windows-release\37amd64_Release\msi_python\zip_amd64\socket.py", line 748, in getaddrinfo
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connection.py", line 309, in connect
+    conn = self._new_conn()
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x000001BB7B223848>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\urllib3\util\retry.py", line 446, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='a.blazemeter.com', port=443): Max retries exceeded with url: /api/v4/web/version (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001BB7B223848>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\utils.py", line 1221, in request
+    return self.session.request(method, url, *args, **kwargs)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='a.blazemeter.com', port=443): Max retries exceeded with url: /api/v4/web/version (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001BB7B223848>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+[2020-11-27 20:01:44,671 ERROR root] Network Error: Request to https://a.blazemeter.com/api/v4/web/version failed
+[2020-11-27 20:01:44,673 DEBUG root] TaurusNetworkError: Request to https://a.blazemeter.com/api/v4/web/version failed
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\cli.py", line 261, in perform
+    self.engine.prepare()
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\engine\engine.py", line 217, in prepare
+    self.__prepare_reporters()
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\engine\engine.py", line 643, in __prepare_reporters
+    module.prepare()
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\modules\blazemeter.py", line 251, in prepare
+    self._user.ping()  # to check connectivity and auth
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\bza.py", line 166, in ping
+    self._request(self.address + '/api/v4/web/version')
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\bza.py", line 97, in _request
+    method=log_method, url=url, data=data, headers=headers, timeout=self.timeout)
+  File "C:\Users\ABDULWASIU-MORONKOLA\AppData\Local\Taurus\pkgs\bzt\utils.py", line 1228, in request
+    raise TaurusNetworkError(msg)
+[2020-11-27 20:01:44,673 INFO Engine] Post-processing...
+[2020-11-27 20:01:44,674 DEBUG Engine.local] Post-process jmeter/registerdemo
+[2020-11-27 20:01:44,674 DEBUG Engine] Add existing artifact (move=True): C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\modified_requests.jmx
+[2020-11-27 20:01:44,674 DEBUG Engine] No need to copy C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\modified_requests.jmx
+[2020-11-27 20:01:44,674 DEBUG Engine.jmeter.JTLErrorsReader.FileReader] File not appeared yet: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\error.jtl
+[2020-11-27 20:01:44,674 DEBUG Engine.jmeter.JTLErrorsReader.FileReader] File not appeared yet: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\error.jtl
+[2020-11-27 20:01:44,674 DEBUG Engine.jmeter.JTLReader.IncrementalCSVReader.FileReader] File not appeared yet: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\kpi.jtl
+[2020-11-27 20:01:44,674 DEBUG Engine.jmeter.JTLReader] Buffer len: 0; Known errors count: 0
+[2020-11-27 20:01:44,674 DEBUG Engine.consolidator] Consolidator buffer[0]: dict_keys([])
+[2020-11-27 20:01:44,674 INFO Engine.final-stats] Test duration: 0:00:00
+[2020-11-27 20:01:44,675 DEBUG Engine.console] No logger_handler or orig_stream was detected
+[2020-11-27 20:01:44,675 DEBUG Engine.blazemeter] No feeding session obtained, nothing to finalize
+[2020-11-27 20:01:44,685 DEBUG Engine.Configuration] Dumping YAML config into C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\effective.yml
+[2020-11-27 20:01:44,701 DEBUG Engine.Configuration] Dumping JSON config into C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\effective.json
+[2020-11-27 20:01:44,703 INFO root] Artifacts dir: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689
+[2020-11-27 20:01:44,705 WARNING root] Done performing with code: 1
+[2020-11-27 20:01:44,707 DEBUG root] Closing log handler: C:\Users\ABDULWASIU-MORONKOLA\IdeaProjects\systemspecs\gateway\src\main\resources\config\2020-11-27_20-01-29.543689\bzt.log

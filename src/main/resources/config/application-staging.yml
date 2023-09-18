@@ -1,0 +1,235 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+logging:
+  level:
+    ROOT: DEBUG
+    io.github.jhipster: DEBUG
+    ng.com.systemspecs.apigateway: DEBUG
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-exclude: static/**
+    livereload:
+      enabled: true # we use Webpack dev server + BrowserSync for livereload
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/dfscore_dev_2
+    username: postgres
+    password: ifeanyi
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  jpa:
+    database-platform: io.github.jhipster.domain.util.FixedPostgreSQL10Dialect
+    show-sql: true
+  liquibase:
+    # Remove 'faker' if you do not want the sample data to be loaded automatically
+    contexts: prod
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username:
+    password:
+    protocol: smtp
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
+  messages:
+    cache-duration: PT1S # 1 second, see the ISO 8601 standard
+  thymeleaf:
+    cache: false
+  sleuth:
+    sampler:
+      probability: 1 # report 100% of traces
+  zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
+    base-url: http://localhost:9411
+    enabled: false
+    locator:
+      discovery:
+        enabled: true
+
+server:
+  port: 8084
+ssl:
+  key-store: mylocal.p12
+  key-store-password: dfspassword
+  keyStoreType: PKCS12
+  keyAlias: dfsalias
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+  gateway:
+    rate-limiting:
+      enabled: false
+      limit: 100000
+      duration-in-seconds: 3600
+    authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
+      app1: /api,/v2/api-docs # recommended dev configuration
+  cache: # Cache configuration
+    ehcache: # Ehcache configuration
+      time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
+      max-entries: 1000 # Number of objects in each cache entry
+  # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
+  cors:
+    allowed-origins: '*'
+    allowed-methods: '*'
+    allowed-headers: '*'
+    exposed-headers: 'Authorization,Link,X-Total-Count'
+    allow-credentials: true
+    max-age: 1800
+  security:
+    authentication:
+      jwt:
+        # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+        base64-secret: OWNlOTkwNzA0NWZkNmYzMjdmZGZmNjc1ZjgzZGVjNjE1MDU4OGI2NjUzOTJiMTIzOTA1ODlmZjEzMjNlMDBjMzFkMDExOGVmZTU1MTQ2OGE3NDFmMzk3YzQ1ZWRjYWNiMWU5ZTc5YzdiNTQxOWJlZjk0MzdmYTYzZjk1MWJlNWU=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 2592000
+  mail: # specific JHipster mail property, for standard properties see MailProperties
+    base-url: http://127.0.0.1:8084
+  metrics:
+    logs: # Reports metrics in the logs
+      enabled: false
+      report-frequency: 60 # in seconds
+  logging:
+    use-json-format: false # By default, logs are not in Json format
+    logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+      enabled: true
+      host: localhost
+      port: 5000
+      queue-size: 512
+  audit-events:
+    retention-period: 300 # Number of days before audit events are deleted.
+
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+app:
+  serm: Remita
+  dough: 0841011021@006#1
+
+  scheme:
+    systemspecs: '53797374656d73706563732077616c6c6574'
+    ibile: '4962696c65'
+    mcpherson: '4d6350686572736f6e'
+
+  constants:
+    inline:
+      secret-key: '4ac2427b53b5bac53df667e5605d2a4234a994f68bc63479522567c6247627f0b8e0217b0d3378d49f216bcd4f3a46bf0056627358df61f929450e3c7d48bef1'
+      inline-pmt-status-public-key: 'U09MRHw0MDgxOTUzOHw2ZDU4NGRhMmJhNzVlOTRiYmYyZjBlMmM1YzUyNzYwZTM0YzRjNGI4ZTgyNzJjY2NjYTBkMDM0ZDUyYjZhZWI2ODJlZTZjMjU0MDNiODBlMzI4YWNmZGY2OWQ2YjhiYzM2N2RhMmI1YWEwYTlmMTFiYWI2OWQxNTc5N2YyZDk4NA=='
+      remita-live-url: 'https://remitademo.net/payment/v1/payment/query/{transId}'
+      api-public-key: 'U09MRHw0MDgxOTUzOHw2ZDU4NGRhMmJhNzVlOTRiYmYyZjBlMmM1YzUyNzYwZTM0YzRjNGI4ZTgyNzJjY2NjYTBkMDM0ZDUyYjZhZWI2ODJlZTZjMjU0MDNiODBlMzI4YWNmZGY2OWQ2YjhiYzM2N2RhMmI1YWEwYTlmMTFiYWI2OWQxNTc5N2YyZDk4NA=='
+    remita:
+      public-key: 'U09MRHw0MDgxOTUzOHw2ZDU4NGRhMmJhNzVlOTRiYmYyZjBlMmM1YzUyNzYwZTM0YzRjNGI4ZTgyNzJjY2NjYTBkMDM0ZDUyYjZhZWI2ODJlZTZjMjU0MDNiODBlMzI4YWNmZGY2OWQ2YjhiYzM2N2RhMmI1YWEwYTlmMTFiYWI2OWQxNTc5N2YyZDk4NA=='
+      billing:
+        secret-key: '4ac2427b53b5bac53df667e5605d2a4234a994f68bc63479522567c6247627f0b8e0217b0d3378d49f216bcd4f3a46bf0056627358df61f929450e3c7d48bef1'
+        payment-url: 'https://remitademo.net/remita/exapp/api/v1/send/api/bgatesvc/billing/payment/notify'
+      notify-billing:
+        secret-key: '4ac2427b53b5bac53df667e5605d2a4234a994f68bc63479522567c6247627f0b8e0217b0d3378d49f216bcd4f3a46bf0056627358df61f929450e3c7d48bef1'
+        merchant-id: 'SPECSRW1234'
+        rits-api-key: 'U1BFQ1NSVzEyMzR8U1BFQ1NSVw=='
+        rits-api-token: 'QkJsUEVnVFl2V2FzR25pczhpdnAzbDI5Q3FzZzBlTHFBY3RBQ05IZTd2dlVJNnBFTG51NDhRPT0='
+        rits-secret-key: 'kqtsrbgxajhmdwnp'
+        rits-secret-key-iv: 'buygtdcazwvqsepk'
+  ibile:
+    key: 'PH5UVZG993ND6BMADS65'
+    clientId: '547722205125070'
+    state: 'XXSG'
+
+  cashconnect:
+    email: 'info@systemspecs.com.ng'
+    password: 'grSua39c1FR3JQ2jd$'
+    username: 'a19429fb-9d73-4116-b680-6b02d9fb7ddc'
+    base-url: 'https://izn2rru35e.execute-api.eu-west-2.amazonaws.com/dev'
+    account-number: '0000000367'
+
+  liberty-assured:
+    auth_code: 'CM3HTVXpzFhJ2eZ4qAe8BgdgdZAPBbX87jtXNVx9'
+    branch_code: '109236'
+    public_key: '21841'
+
+  itex:
+    base-url: 'http://197.253.19.76:1880/api/v1/vas/'
+    base-url2: 'http://197.253.19.78:1880/api/v2/vas/'
+    authenticate-url: 'http://197.253.19.76:1880/api/vas/authenticate/me'
+    key: 'es19s89huh98ub89oi0l997y023m8uu76'
+    organisation-code: '00101212095'
+    pin: '1221'
+
+  vulte:
+    base_url: 'https://api.openbanking.vulte.ng'
+    service_url: '/v2/transact'
+    validate_url: '/v2/transact/validate'
+    mock-mode: 'Inspect'
+
+  polaris-card:
+    base-url: 'https://digital-staging.polarisbanklimited.com/polaris.digital.card.service.api'
+    token-url: 'https://digital-staging.polarisbanklimited.com'
+    oauth: '/Polaris.Digital.Api.Gateway/OAuthToken'
+    collection-account: '/Polaris.Digital.Api.Gateway/account/api/CollectionSubAccount/Create'
+    open-collection-account: 'https://digital-staging.polarisbanklimited.com/Polaris.Digital.Api.Gateway/account/api/CollectionSubAccount/Create'
+    get-cards: '/api/v1/Vendor/GetVendorCards'
+    request-card: '/api/v1/Vendor/RequestVendorCard'
+    activate-card: '/api/v1/Vendor/ActivateVendorCard'
+    pin-change: '/api/v1/Vendor/VendorCardPINChange'
+    pin-reset: '/api/v1/Vendor/VendorCardPINReset'
+    vendor-card-profile: '/api/v1/Vendor/GetVendorCardProfile'
+    get-branches: '/api/v1/Vendor/GetBankBranches'
+    add-acct-vendor: '/api/v1/Vendor/AddAccountToVendor'
+    mode: false
+    client_id: 'systemspecs'
+    client_secret: 'systemspecssecret890@!!'
+    grant_type: 'client_credentials'
+    charges-acct: '1771906185'
+    card-payable-wallet: '1000000048'
+    mcu-commission-acct: '1000000081'
+
+  migo:
+    base-url: 'https://sandbox-api.migo.money/'
+    key-id: '+jFmYPO1PEtpOooZIh5Mtg=='
+    secret-key: 'hJMtL8MSGczyuua6n/9NRwjVNwXhzANjvUNFLS1PMIc='
+
+  p2vest:
+    base-url: 'https://prod.p2vest.com'
+    bearer-token: 'live_sk_KyjPIgwjNPovhtD2tsYdEPbGwBUMq24M'
+  #  transaction:
+  #    is-cashconnect: false
+  pay-biller:
+    baseUrl: 'http://192.168.19.59:8484/integration-service'

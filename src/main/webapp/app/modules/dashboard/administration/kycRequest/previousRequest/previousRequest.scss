@@ -1,0 +1,31 @@
+.prev-user {
+  color: #fff;
+  cursor: pointer;
+}
+
+.transaction-table {
+  .approve-user {
+    background-color: hsl(155, 39%, 33%);
+    transition: all 0.3s linear;
+
+    &:hover {
+      background-color: hsl(155, 46%, 12%);
+      color: #fff;
+    }
+  }
+  .reject-user {
+    background-color: hsl(0, 52%, 45%);
+
+    &:hover {
+      background-color: hsl(0, 56%, 24%);
+      color: #fff;
+    }
+  }
+}
+
+.upgrade-approved {
+  color: hsl(156, 40%, 42%);
+}
+.upgrade-rejected {
+  color: hsl(0, 100%, 48%);
+}

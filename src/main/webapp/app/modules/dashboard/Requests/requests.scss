@@ -1,0 +1,28 @@
+.requests {
+  font-family: 'poppins-regular';
+}
+
+.transparentButton {
+  border: 1px solid #435faa;
+  height: 54px;
+  width: 98px;
+  border-radius: 32px;
+  padding: 15px, 24px, 15px, 24px;
+  background-color: transparent;
+  font-family: 'poppins-Regular';
+  color: #435faa;
+  margin: 10px;
+}
+
+.RegularButton {
+  background-color: #435faa;
+  color: #fff;
+}
+
+.action-Button-div {
+  // background-color: greenyellow;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

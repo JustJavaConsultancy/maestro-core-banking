@@ -1,0 +1,25 @@
+{
+  "apiGatewayApp": {
+    "approvalWorkflow": {
+      "home": {
+        "title": "ApprovalWorkflows",
+        "createLabel": "Créer un nouveau Approval Workflow",
+        "createOrEditLabel": "Créer ou éditer un Approval Workflow",
+        "notFound": "Aucun Approval Workflow trouvé"
+      },
+      "created": "Un nouveau Approval Workflow a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Approval Workflow avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Approval Workflow avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Approval Workflow {{ id }} ?"
+      },
+      "detail": {
+        "title": "Approval Workflow"
+      },
+      "name": "Name",
+      "initiator": "Initiator",
+      "approver": "Approver",
+      "transactionType": "Transaction Type"
+    }
+  }
+}

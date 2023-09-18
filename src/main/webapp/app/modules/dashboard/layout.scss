@@ -1,0 +1,189 @@
+.sidebar {
+  flex: 0.2;
+  height: 100vh;
+  padding-top: 50px;
+}
+
+.content {
+  flex: 0.8;
+}
+
+.sideNavActive {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.fancy-button {
+  border: 0;
+  background-color: '#fff';
+  border-radius: 17px;
+  font-size: 12px;
+  margin-top: 15px;
+  padding: 10px;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.space {
+  margin: 25px;
+}
+
+.tableListData td {
+  font-size: 13.57px;
+}
+.tableListData th {
+  font-size: 13.57px;
+}
+
+.tdata td {
+  font-size: 14px;
+}
+.shealth {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 11px 12px;
+  border-radius: 3px;
+  margin: 5px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #ffffff;
+}
+
+.side-content {
+  position: fixed;
+  height: 85vh;
+  width: 95%;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.side-content-show {
+  overflow-y: scroll;
+}
+
+.side-content-show::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.side-content {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.side-content::-webkit-scrollbar {
+  display: none;
+}
+
+.layoutContainer {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #e9f6f6;
+  overflow: hidden;
+}
+
+.side-bar {
+  height: 100% !important;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  transition: 0.8s ease;
+  position: fixed;
+  top: 83px;
+}
+
+.inactive_nav {
+  color: #565682;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.inactive_nav table {
+  margin-top: -12px;
+  margin-bottom: -12px;
+}
+
+.blindFold {
+  position: fixed;
+  top: -100px !important;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.56);
+  z-index: 4000;
+  height: 200vh;
+  width: 100vw;
+}
+
+.active-sub-info {
+  background-color: #f2f5fb;
+  padding: 1rem 24px 1.1rem 2rem;
+  margin-bottom: 32px;
+
+  p {
+    margin: 0;
+  }
+
+  > div {
+    &:last-of-type {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .active__nav {
+    margin-bottom: 28px;
+  }
+
+  a {
+    width: 100%;
+    background: transparent;
+    p {
+      padding: 18px 0;
+      color: #435faa !important;
+      font-weight: 400;
+    }
+  }
+}
+
+.inactive-sub-info {
+  margin-bottom: 32px;
+  padding-left: 2rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.inner-side-content-box {
+  width: 100%;
+  overflow: hidden;
+}
+
+.sidebar__link {
+  margin-bottom: 32px;
+  margin-left: 32px;
+
+  p {
+    margin: 0;
+  }
+}

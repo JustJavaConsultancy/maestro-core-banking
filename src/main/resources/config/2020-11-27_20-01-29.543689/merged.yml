@@ -1,0 +1,33 @@
+---
+execution:
+  concurrency: 10
+  executor: jmeter
+  hold-for: 2m
+  modules:
+    jmeter:
+      class: bzt.modules.jmeter.JMeterExecutor
+      path: build/jmeter/bin/jmeter
+      properties:
+        jmeter.save.saveservice.autoflush: 'true'
+  ramp-up: 30s
+  scenario: registerdemo
+scenarios:
+  registerdemo:
+    default-address: http://localhost:8084/api
+    headers:
+      Accept: application/json
+      X-Tracking: false
+    requests:
+      - assert:
+          - contains:
+              - 200
+            not: true
+            subject: http-code
+        body:
+          firstName: Olawale
+          lastName: Joshua
+          password: '********'
+          phoneNumber: '+2348081857608'
+        method: POST
+        think-time: 2s
+        url: /register

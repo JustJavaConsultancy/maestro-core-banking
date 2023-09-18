@@ -1,0 +1,59 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "profile",
+      "otherEntityName": "profile",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": [
+        "required"
+      ],
+      "otherEntityField": "phoneNumber",
+      "otherEntityRelationshipName": "kycRequest"
+    },
+    {
+      "relationshipName": "senderProfile",
+      "otherEntityName": "profile",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": [
+        "required"
+      ],
+      "otherEntityField": "phoneNumber",
+      "otherEntityRelationshipName": "kycRequest"
+    },
+    {
+      "relationshipName": "approver",
+      "otherEntityName": "profile",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "phoneNumber",
+      "otherEntityRelationshipName": "kycRequest"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "currentLevel",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "KycRequestStatus",
+      "fieldValues": "AWAITING_APPROVAL,APPROVED,REJECTED",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "changelogDate": "20210921125217",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "kyc_request",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

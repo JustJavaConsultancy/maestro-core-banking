@@ -1,0 +1,215 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-21">
+        <addColumn tableName="field_drop_down">
+            <column name="account_id" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-22">
+        <addColumn tableName="customersubscription">
+            <column name="biller_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-23">
+        <addColumn tableName="field_drop_down">
+            <column name="biller_service_option_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-24">
+        <addColumn tableName="field_drop_down">
+            <column name="code" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-25">
+        <addColumn tableName="field_drop_down">
+            <column name="description" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-26">
+        <addColumn tableName="field_drop_down">
+            <column name="drop_down_id" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-27">
+        <addColumn tableName="field_drop_down">
+            <column name="fixed_price" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-28">
+        <addColumn tableName="customersubscription">
+            <column name="frequency" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-29">
+        <addColumn tableName="customersubscription">
+            <column autoIncrement="true" name="id" type="int8">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-30">
+        <addColumn tableName="field_drop_down">
+            <column autoIncrement="true" name="id" type="int8">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-31">
+        <addColumn tableName="customersubscription">
+            <column name="phone_number_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-32">
+        <addColumn tableName="customersubscription">
+            <column name="unique_id" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-33">
+        <addColumn tableName="field_drop_down">
+            <column name="unit_price" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-34">
+        <addPrimaryKey columnNames="id" constraintName="access_rightPK" tableName="access_right"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-35">
+        <addPrimaryKey columnNames="id" constraintName="beneficiaryPK" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-36">
+        <addPrimaryKey columnNames="id" constraintName="biller_platformPK" tableName="biller_platform"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-37">
+        <addPrimaryKey columnNames="id" constraintName="customersubscriptionPK" tableName="customersubscription"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-38">
+        <addPrimaryKey columnNames="id" constraintName="field_drop_downPK" tableName="field_drop_down"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-39">
+        <addUniqueConstraint columnNames="transaction_type_id" constraintName="UK_muswsgteu9ukkb6yf3q5slwo3"
+                             tableName="approval_workflow"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-40">
+        <addForeignKeyConstraint baseColumnNames="biller_service_option_id" baseTableName="field_drop_down"
+                                 constraintName="FK1g584p2nct5mqn92ysi98y8q5" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id"
+                                 referencedTableName="biller_service_option" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-41">
+        <addForeignKeyConstraint baseColumnNames="biller_platform_id" baseTableName="biller_custom_field_option"
+                                 constraintName="FKgc28hreme0j025cbul9gwe3o8" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id"
+                                 referencedTableName="biller_platform" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-42">
+        <addForeignKeyConstraint baseColumnNames="phone_number_id" baseTableName="customersubscription"
+                                 constraintName="FKmsg0ssg2ip7nl0winl4qtym7e" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-43">
+        <addForeignKeyConstraint baseColumnNames="biller_id" baseTableName="customersubscription"
+                                 constraintName="FKokjy6mw2c436lyrd2rppweq3b" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-44">
+        <dropColumn columnName="c1" tableName="customersubscription"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-45">
+        <dropColumn columnName="c1" tableName="field_drop_down"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-46">
+        <dropColumn columnName="c2" tableName="field_drop_down"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-47">
+        <dropColumn columnName="c3" tableName="field_drop_down"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-48">
+        <dropColumn columnName="c4" tableName="field_drop_down"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-49">
+        <dropColumn columnName="c5" tableName="field_drop_down"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-50">
+        <dropColumn columnName="c6" tableName="field_drop_down"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-51">
+        <dropColumn columnName="c7" tableName="field_drop_down"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-52">
+        <dropColumn columnName="c8" tableName="field_drop_down"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-53">
+        <dropColumn columnName="has_custom_field_option" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-54">
+        <dropColumn columnName="new column" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-1">
+        <alterSequence sequenceName="sequence_generator"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-2">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="account_number" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-3">
+        <dropNotNullConstraint columnDataType="number(19,2)" columnName="amount" tableName="ipg_synch_transaction"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-4">
+        <addNotNullConstraint columnDataType="bigint" columnName="approver_id" tableName="approval_workflow"
+                              validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-5">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="bank_code" tableName="bank"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-6">
+        <dropDefaultValue columnDataType="boolean" columnName="completed" tableName="request"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-7">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-8">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="request" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-9">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="transaction_log"
+                              validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-10">
+        <addNotNullConstraint columnDataType="bigint" columnName="initiator_id" tableName="approval_workflow"
+                              validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-11">
+        <dropDefaultValue columnDataType="boolean" columnName="is_maker" tableName="access_item"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-12">
+        <dropNotNullConstraint columnDataType="boolean" columnName="is_wallet" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-13">
+        <dropDefaultValue columnDataType="boolean" columnName="is_wallet" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-14">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="name" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-15">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_id" tableName="request"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-16">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_ref" tableName="request"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-17">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_type_code" tableName="request"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-18">
+        <addDefaultValue columnDataType="varchar(20)" columnName="status" defaultValue="START"
+                         tableName="transaction_log"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-19">
+        <addDefaultValue columnDataType="varchar(20)" columnName="trans_status" defaultValue="OK" tableName="jounal"/>
+    </changeSet>
+    <changeSet author="ABDULWASIU-MORONKOLA (generated)" id="1618397501642-20">
+        <addNotNullConstraint columnDataType="bigint" columnName="transaction_type_id" tableName="approval_workflow"
+                              validate="true"/>
+    </changeSet>
+</databaseChangeLog>

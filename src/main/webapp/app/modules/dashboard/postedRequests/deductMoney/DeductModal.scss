@@ -1,0 +1,203 @@
+/* The Modal (background) */
+.success-modal {
+  .modal-background {
+    position: fixed;
+    z-index: 10000000000000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #8d8d8caa;
+  }
+
+  .modal__content {
+    position: fixed;
+    z-index: 10000000000001;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    margin: 0 auto;
+    background: #fff;
+    width: 30rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.3rem;
+    align-items: center;
+    padding: 2.375rem 2.8125rem 1.6rem;
+
+    .modal {
+      &-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        h3 {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 27px;
+          margin-bottom: 0.75rem;
+          color: #435faa;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 27px;
+          color: #3b445a;
+          margin-bottom: 0.75rem;
+        }
+
+        > div {
+          position: relative;
+
+          .loading__cover {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background: #f3f6f8a6;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .md__body__input {
+            display: flex;
+            flex-direction: column;
+            background: #f3f6f8;
+            border-radius: 20px;
+            padding: 24px 14px 37px;
+            margin-bottom: 38px;
+
+            > div {
+              &:nth-of-type(1) {
+                width: 100%;
+                margin-bottom: 24px;
+
+                p {
+                  padding: 10px;
+                  font-weight: 200;
+                  font-size: 12px;
+                  line-height: 18px;
+                  background: #2b7ccf;
+                  border-radius: 4px;
+                  color: #fff;
+
+                  span {
+                    font-weight: bold;
+                  }
+                }
+              }
+
+              input {
+                width: 100%;
+                height: 50px;
+                background: #ffffff;
+                border: 1px solid #435faa;
+                border-radius: 8px;
+                padding: 14.5px 16px;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 21px;
+
+                &:nth-of-type(1) {
+                  margin-bottom: 4px;
+                }
+              }
+
+              &:nth-of-type(2) {
+                width: 100%;
+
+                input {
+                  border: 1px solid #d3d3d3;
+                  color: #b8bfd1;
+                  margin: 0;
+                }
+              }
+            }
+          }
+
+          .md__body__btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+
+            button {
+              border: none;
+              width: 40%;
+              background: #435faa;
+              border-radius: 74.5px;
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 19px;
+              color: #fff;
+              padding: 15px 0;
+              border: solid 0.07rem #435faa;
+
+              &:focus,
+              &:active {
+                outline: none;
+              }
+
+              &:hover {
+                background: #4467c7;
+              }
+
+              &:first-of-type {
+                background: transparent;
+                color: #435faa;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.prompt-bg {
+  &-enter {
+    opacity: 0;
+
+    &-active {
+      opacity: 1;
+      transition: opacity 500ms ease-out;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+
+    &-active {
+      opacity: 0;
+      transition: opacity 500ms ease-out;
+    }
+  }
+}
+
+.prompt-bd {
+  &-enter {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  &-enter-active {
+    transform: translate3d(0, 0, 0);
+    transition: transform 500ms ease-out;
+  }
+
+  &-exit {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+    transition: opacity 600ms ease-out, transform 500ms ease-out;
+  }
+}

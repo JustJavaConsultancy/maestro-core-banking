@@ -1,0 +1,54 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="EMMANUEL (generated)" id="1644510850799-44">
+        <createSequence incrementBy="1" sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1644510850799-45">
+        <createTable tableName="corporate_profile">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="corporate_profilePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="business_address" type="VARCHAR(255)"/>
+            <column name="cac_certificate" type="BOOLEAN"/>
+            <column name="cac_co2" type="BOOLEAN"/>
+            <column name="cac_co7" type="BOOLEAN"/>
+            <column name="business_category" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="business_name" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="rc_no" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="registration_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tin" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="utility_bill" type="BOOLEAN"/>
+            <column name="profile_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1644510850799-46">
+        <createIndex indexName="IDXjwnnti8ympuciy67f3j874khe" tableName="corporate_profile">
+            <column name="rc_no"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1644510850799-47">
+        <createIndex indexName="IDXpu8qpo9q8vjr4416i9ebaoioa" tableName="corporate_profile">
+            <column name="phone_number"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="EMMANUEL (generated)" id="1644510850799-49">
+        <addForeignKeyConstraint baseColumnNames="profile_id" baseTableName="corporate_profile" constraintName="FKorl8hg30gn4uewig5ur9bex0i" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="profile" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

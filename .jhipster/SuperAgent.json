@@ -1,0 +1,41 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "agent",
+      "otherEntityName": "agent",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": ["required"],
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": false,
+      "otherEntityRelationshipName": "superAgent"
+    },
+    {
+      "relationshipName": "scheme",
+      "otherEntityName": "scheme",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": ["required"],
+      "otherEntityField": "schemeID",
+      "otherEntityRelationshipName": "superAgent"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "AgentStatus",
+      "fieldValues": "APPROVED,UNAPPROVED,REJECTED",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "changelogDate": "20210712085716",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "super_agent",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

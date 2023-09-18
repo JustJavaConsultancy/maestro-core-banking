@@ -1,0 +1,55 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="USER (generated)" id="1607067567680-2">
+        <createTable tableName="biller_custom_field_option">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="biller_custom_field_optionPK"/>
+            </column>
+            <column name="accept_part_payment" type="BOOLEAN"/>
+            <column name="currency" type="VARCHAR(255)"/>
+            <column name="fixed_amount" type="FLOAT8"/>
+            <column name="has_price" type="BOOLEAN"/>
+            <column name="biller_platform_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-3">
+        <addColumn tableName="biller_service_option">
+            <column name="biller_custom_field_option_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-4">
+        <addColumn tableName="biller_service_option">
+            <column name="service_option_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-5">
+        <addForeignKeyConstraint baseColumnNames="biller_platform_id" baseTableName="biller_custom_field_option" constraintName="FKgc28hreme0j025cbul9gwe3o8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_platform" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-6">
+        <addForeignKeyConstraint baseColumnNames="biller_custom_field_option_id" baseTableName="biller_service_option" constraintName="FKlnob0tanvpym8hyeocoi4ne99" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_custom_field_option" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-7">
+        <dropForeignKeyConstraint baseTableName="biller_service_option" constraintName="biller_service_option_biller_platform_id_fk"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-8">
+        <dropColumn columnName="biller_platform_id" tableName="biller_service_option"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-9">
+        <dropColumn columnName="fixed_amount" tableName="biller_service_option"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-10">
+        <dropColumn columnName="has_dropdown" tableName="biller_service_option"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-11">
+        <dropColumn columnName="has_price" tableName="biller_service_option"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-12">
+        <dropSequence sequenceName="jounal_id_seq"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-13">
+        <dropSequence sequenceName="jounal_line_id_seq"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1607067567680-1">
+        <alterSequence sequenceName="sequence_generator"/>
+    </changeSet>
+</databaseChangeLog>

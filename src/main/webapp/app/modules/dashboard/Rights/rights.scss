@@ -1,0 +1,65 @@
+.right-container {
+  background: #f6f6f9;
+  margin: 20px;
+  // width: 100%;
+  padding: 20px;
+  //  height: 80vh;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  // background-color: red;
+}
+.phone-input {
+  height: 53px;
+  border-radius: 8px;
+  width: 60%;
+  border: 1px solid #95a0be;
+  font-family: 'poppins-regular';
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+.phone-input:focus {
+  outline-color: #435faa;
+}
+
+.flx1 {
+  flex: 0.2;
+  display: flex;
+  align-items: center;
+}
+
+.flx2 {
+  flex: 0.8;
+}
+.makerchekerLable {
+  padding: 10px;
+}
+.rights-table {
+  font-family: 'poppins-regular';
+}
+
+.rights-name-label {
+  padding-right: 40px;
+}
+.radio-left-margin {
+  padding-left: 20px;
+}
+.approval-button {
+  padding: 15px 24px;
+  background: #435faa;
+  border-radius: 32px;
+  font-family: 'poppins-regular';
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+}
+.button-div-send {
+  // background-color: red;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}

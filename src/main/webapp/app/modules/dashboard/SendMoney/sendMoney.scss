@@ -1,0 +1,78 @@
+.sendMoneyConnector {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: 'red';
+  padding: 10px 100px;
+  // height: 60vh;
+  // justify-content: space-around;
+  width: 50%;
+}
+
+.marg {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.msg-box {
+  margin: 0.3rem 0 1rem;
+  padding: 1rem;
+  width: 90%;
+  border-radius: 4px;
+  color: #eee;
+  font-weight: bold;
+  // background-color: hsl(204, 90%, 49%);
+  // background-color: hsl(0, 100%, 45%);
+
+  p {
+    font-size: 0.875rem;
+  }
+}
+// style={{ backgroundColor: '#fff', marginRight: '40px', fontSize: '12px', marginTop: '14px', padding: '10px' }}
+
+.image-box {
+  border: 1px solid #95a0be;
+  height: 60px;
+  margin: 0.5rem 0;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+  padding-left: 1rem;
+  // background-color: hsl(204, 90%, 49%);
+
+  .img-label {
+    background-color: #eee;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+
+    font-size: 0.75rem;
+  }
+  .img-label-chosen {
+    background-color: hsl(204, 90%, 49%);
+    color: #fff;
+  }
+}
+
+.my-file {
+  display: none;
+}
+
+.send-money-btn {
+  background-color: hsl(204, 90%, 49%);
+  border-radius: 5px;
+  // color: #eee;
+  color: hsl(204, 90%, 90%);
+
+  font-weight: bold;
+  border: none;
+  padding: 0.75rem 2rem;
+  min-width: 150px;
+
+  &:hover {
+    background-color: hsl(204, 90%, 30%);
+    color: #fff;
+  }
+}

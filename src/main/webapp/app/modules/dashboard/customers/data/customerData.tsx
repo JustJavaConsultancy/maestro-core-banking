@@ -1,0 +1,17 @@
+export const headers = [
+  { label: 'ID', key: 'id' },
+  { label: 'First Name', key: 'user.firstName' },
+  { label: 'Last Name', key: 'user.lastName' },
+  { label: 'PhoneNumber', key: 'phoneNumber' },
+  { label: 'Email', key: 'user.email' },
+  { label: 'NIN', key: 'nin' },
+  { label: 'BVN', key: 'bvn' },
+  { label: 'KYC Level', key: 'kycLevel' },
+  { label: 'Gender', key: 'gender' },
+  { label: 'Address', key: 'address' },
+  { label: 'Date Registered', key: 'dateCreated' },
+  { label: 'Date of birth', key: 'dateOfBirth' },
+  { label: 'Profile ID', key: 'profileID' },
+  { label: 'Scheme ID', key: 'schemeID' },
+  { label: 'Status', key: 'user.activated' },
+];

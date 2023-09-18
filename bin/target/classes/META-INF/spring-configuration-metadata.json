@@ -1,0 +1,109 @@
+{
+  "groups": [
+    {
+      "name": "application",
+      "type": "ng.com.systemspecs.apigateway.config.ApplicationProperties",
+      "sourceType": "ng.com.systemspecs.apigateway.config.ApplicationProperties"
+    },
+    {
+      "name": "application.mail",
+      "type": "ng.com.systemspecs.apigateway.config.ApplicationProperties$Mail",
+      "sourceType": "ng.com.systemspecs.apigateway.config.ApplicationProperties",
+      "sourceMethod": "public ng.com.systemspecs.apigateway.config.ApplicationProperties.Mail getMail() "
+    },
+    {
+      "name": "kafka",
+      "type": "ng.com.systemspecs.apigateway.config.KafkaProperties",
+      "sourceType": "ng.com.systemspecs.apigateway.config.KafkaProperties"
+    },
+    {
+      "name": "pgp",
+      "type": "ng.com.systemspecs.apigateway.config.PGPConfigProperties",
+      "sourceType": "ng.com.systemspecs.apigateway.config.PGPConfigProperties"
+    },
+    {
+      "name": "spring.datasource.hikari",
+      "type": "javax.sql.DataSource",
+      "sourceType": "ng.com.systemspecs.apigateway.config.CloudDatabaseConfiguration",
+      "sourceMethod": "public javax.sql.DataSource dataSource() "
+    }
+  ],
+  "properties": [
+    {
+      "name": "application.mail.auth",
+      "type": "java.lang.Boolean",
+      "sourceType": "ng.com.systemspecs.apigateway.config.ApplicationProperties$Mail"
+    },
+    {
+      "name": "application.mail.from",
+      "type": "java.lang.String",
+      "sourceType": "ng.com.systemspecs.apigateway.config.ApplicationProperties$Mail"
+    },
+    {
+      "name": "application.mail.host",
+      "type": "java.lang.String",
+      "sourceType": "ng.com.systemspecs.apigateway.config.ApplicationProperties$Mail"
+    },
+    {
+      "name": "application.mail.password",
+      "type": "java.lang.String",
+      "sourceType": "ng.com.systemspecs.apigateway.config.ApplicationProperties$Mail"
+    },
+    {
+      "name": "application.mail.port",
+      "type": "java.lang.Integer",
+      "sourceType": "ng.com.systemspecs.apigateway.config.ApplicationProperties$Mail"
+    },
+    {
+      "name": "application.mail.starttls",
+      "type": "java.lang.Boolean",
+      "sourceType": "ng.com.systemspecs.apigateway.config.ApplicationProperties$Mail"
+    },
+    {
+      "name": "application.mail.username",
+      "type": "java.lang.String",
+      "sourceType": "ng.com.systemspecs.apigateway.config.ApplicationProperties$Mail"
+    },
+    {
+      "name": "kafka.consumer",
+      "type": "java.util.Map<java.lang.String,java.util.Map<java.lang.String,java.lang.Object>>",
+      "sourceType": "ng.com.systemspecs.apigateway.config.KafkaProperties"
+    },
+    {
+      "name": "kafka.polling-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "ng.com.systemspecs.apigateway.config.KafkaProperties"
+    },
+    {
+      "name": "kafka.producer",
+      "type": "java.util.Map<java.lang.String,java.util.Map<java.lang.String,java.lang.Object>>",
+      "sourceType": "ng.com.systemspecs.apigateway.config.KafkaProperties"
+    },
+    {
+      "name": "pgp.ascii-armored",
+      "type": "java.lang.Boolean",
+      "sourceType": "ng.com.systemspecs.apigateway.config.PGPConfigProperties"
+    },
+    {
+      "name": "pgp.integrity-check",
+      "type": "java.lang.Boolean",
+      "sourceType": "ng.com.systemspecs.apigateway.config.PGPConfigProperties"
+    },
+    {
+      "name": "pgp.passphrase",
+      "type": "java.lang.String",
+      "sourceType": "ng.com.systemspecs.apigateway.config.PGPConfigProperties"
+    },
+    {
+      "name": "pgp.public-key-file-path",
+      "type": "java.lang.String",
+      "sourceType": "ng.com.systemspecs.apigateway.config.PGPConfigProperties"
+    },
+    {
+      "name": "pgp.secret-key-file-path",
+      "type": "java.lang.String",
+      "sourceType": "ng.com.systemspecs.apigateway.config.PGPConfigProperties"
+    }
+  ],
+  "hints": []
+}

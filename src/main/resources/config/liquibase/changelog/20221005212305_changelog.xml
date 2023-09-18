@@ -1,0 +1,249 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-49">
+        <createTable tableName="initiate_biller_transaction_entity">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="initiate_biller_transaction_entityPK"/>
+            </column>
+            <column name="bonus_amount" type="FLOAT8"/>
+            <column name="initiate_biller_transaction" type="TEXT"/>
+            <column name="narration" type="VARCHAR(255)"/>
+            <column name="recurring_id" type="BIGINT"/>
+            <column name="redeem_bonus" type="BOOLEAN"/>
+            <column name="source_account" type="VARCHAR(255)"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-50">
+        <createTable tableName="sweeping_config">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sweeping_configPK"/>
+            </column>
+            <column name="amount" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="destination_account" type="VARCHAR(255)"/>
+            <column name="destination_bank_code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="percentage" type="FLOAT8"/>
+            <column name="source_account" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vendor_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-51">
+        <addColumn tableName="ibile_payment_details">
+            <column name="internal_ref" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-52">
+        <addColumn tableName="ibile_payment_details">
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-53">
+        <addColumn tableName="ibile_payment_details">
+            <column name="status" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-54">
+        <addColumn tableName="ibile_payment_details">
+            <column name="total_amount_paid" type="float8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-55">
+        <addColumn tableName="wallet_account">
+            <column name="version" type="int4"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-56">
+        <addPrimaryKey columnNames="id" constraintName="kyc_requestPK" tableName="kyc_request"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-57">
+        <addForeignKeyConstraint baseColumnNames="biller_platform_id" baseTableName="biller_custom_field_option" constraintName="FKgc28hreme0j025cbul9gwe3o8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="biller_platform" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-58">
+        <dropTable tableName="jounal_id_to_delete"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-59">
+        <dropColumn columnName="biller_name" tableName="biller_recurring"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-60">
+        <dropColumn columnName="currency" tableName="biller_recurring"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-61">
+        <dropColumn columnName="has_custom_field_option" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-62">
+        <dropColumn columnName="new_column" tableName="biller_custom_field_option"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-63">
+        <dropColumn columnName="payers_email" tableName="biller_recurring"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-64">
+        <dropColumn columnName="payers_name" tableName="biller_recurring"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-65">
+        <dropColumn columnName="payment_frequency" tableName="biller_recurring"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-66">
+        <dropColumn columnName="phone" tableName="biller_recurring"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-67">
+        <dropColumn columnName="service_name" tableName="biller_recurring"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-68">
+        <dropSequence sequenceName="jounal_id_seq"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-69">
+        <dropSequence sequenceName="jounal_line_id_seq"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-1">
+        <alterSequence sequenceName="sequence_generator"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-2">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="account_number" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-3">
+        <addDefaultValue columnDataType="varchar(20)" columnName="actual_balance" defaultValue="HPvehMn1z2mbh3I/fDtskA==" tableName="wallet_account"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-4">
+        <dropNotNullConstraint columnDataType="float8" columnName="amount" tableName="bonus_point"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-5">
+        <dropNotNullConstraint columnDataType="number(19,2)" columnName="amount" tableName="ipg_synch_transaction"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-6">
+        <addNotNullConstraint columnDataType="number(21,2)" columnName="amount" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-7">
+        <addNotNullConstraint columnDataType="bigint" columnName="approver_id" tableName="approval_workflow" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-8">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="bank_code" tableName="bank"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-9">
+        <dropDefaultValue columnDataType="float8" columnName="bonus_amount" tableName="transaction_log"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-10">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="channel" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-11">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="loan" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-12">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="profile" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-13">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="request" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-14">
+        <addNotNullConstraint columnDataType="varchar(50)" columnName="created_by" tableName="transaction_log" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-15">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="currency" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-16">
+        <dropDefaultValue columnDataType="float8" columnName="current_balance" tableName="jounal_line"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-17">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="current_balance" tableName="wallet_account"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-18">
+        <addNotNullConstraint columnDataType="int" columnName="current_level" tableName="kyc_request" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-19">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="destination_account" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-20">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="destination_account_bank_code" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-21">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="destination_narration" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-22">
+        <addNotNullConstraint columnDataType="bigint" columnName="id" tableName="kyc_request" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-23">
+        <addNotNullConstraint columnDataType="bigint" columnName="initiator_id" tableName="approval_workflow" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-24">
+        <dropDefaultValue columnDataType="boolean" columnName="is_maker" tableName="access_item"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-25">
+        <dropNotNullConstraint columnDataType="boolean" columnName="is_wallet" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-26">
+        <dropDefaultValue columnDataType="boolean" columnName="is_wallet" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-27">
+        <addNotNullConstraint columnDataType="bigint" columnName="journal_id" tableName="bonus_point" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-28">
+        <dropNotNullConstraint columnDataType="timestamp" columnName="last_login_date" tableName="my_device"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-29">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="name" tableName="beneficiary"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-30">
+        <dropNotNullConstraint columnDataType="bigint" columnName="profile_id" tableName="access_right"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-31">
+        <addNotNullConstraint columnDataType="bigint" columnName="profile_id" tableName="kyc_request" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-32">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="recipient" tableName="notification" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-33">
+        <dropDefaultValue columnDataType="boolean" columnName="redeem_bonus" tableName="transaction_log"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-34">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_id" tableName="request"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-35">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_ref" tableName="request"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-36">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="request_type_code" tableName="request"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-37">
+        <addNotNullConstraint columnDataType="bigint" columnName="sender_profile_id" tableName="kyc_request" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-38">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="source_account" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-39">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="source_account_bank_code" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-40">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="source_narration" tableName="payment_transaction" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-41">
+        <addNotNullConstraint columnDataType="varchar(255)" columnName="status" tableName="kyc_request" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-42">
+        <addDefaultValue columnDataType="varchar(20)" columnName="status" defaultValue="START" tableName="transaction_log"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-43">
+        <addDefaultValue columnDataType="varchar(20)" columnName="status" defaultValue="ACTIVE" tableName="wallet_account"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-44">
+        <dropNotNullConstraint columnDataType="varchar(255)" columnName="title" tableName="notification"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-45">
+        <addDefaultValue columnDataType="varchar(20)" columnName="trans_status" defaultValue="OK" tableName="jounal"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-46">
+        <addNotNullConstraint columnDataType="bigint" columnName="transaction_type_id" tableName="approval_workflow" validate="true"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-47">
+        <dropUniqueConstraint constraintName="UC_PROFILEPHONE_NUMBER_COL" tableName="profile"/>
+    </changeSet>
+    <changeSet author="ABDULMALIK-ADULLAHI (generated)" id="1665005250675-48">
+        <addUniqueConstraint columnNames="phone_number" constraintName="UC_PROFILEPHONE_NUMBER_COL" tableName="profile"/>
+    </changeSet>
+</databaseChangeLog>

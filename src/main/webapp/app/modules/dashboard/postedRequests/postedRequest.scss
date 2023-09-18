@@ -1,0 +1,127 @@
+.request__row {
+  cursor: pointer;
+}
+
+.title__content__divide {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 0.4rem;
+  position: relative;
+  top: -0.2rem;
+}
+
+.post__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 221px;
+}
+
+.post__header__box__start {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+
+  .post__header__btn {
+    justify-content: flex-start !important;
+    margin-left: 20px;
+  }
+}
+
+.post__header__box__end {
+  display: flex;
+  align-items: center;
+  gap: 102px;
+
+  > div {
+    &:nth-of-type(1) {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+
+      span {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        color: #000000;
+      }
+
+      > div {
+        &.schools__dropdown {
+          display: flex;
+          align-items: center;
+          border: 0.95px solid #8c9ba1;
+          border-radius: 9px;
+          padding: 8px 16px;
+          gap: 50px;
+          cursor: pointer;
+
+          div {
+            transform: rotate(90deg);
+          }
+
+          span {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+          }
+        }
+
+        &.schools__dropdown__list {
+          position: absolute;
+          top: 0px;
+          background: #fff;
+          width: 158px;
+          max-height: 234px;
+          left: 141px;
+          overflow-y: scroll;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+          box-shadow: 0px 4px 29px rgba(0, 0, 0, 0.1);
+
+          p {
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 18px;
+            color: #000000;
+            margin: 0;
+          }
+
+          > div {
+            padding: 16px 10px 16px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+
+            &:hover {
+              background: #e5e5e5;
+            }
+          }
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.refresh__btn {
+  animation: rotate 1s ease-out infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.table__approval {
+  display: flex;
+  gap: 16px;
+}

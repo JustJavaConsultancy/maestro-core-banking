@@ -1,0 +1,56 @@
+.wallet-transaction-filter-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.filter-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: initial;
+  // line-height: 16px;
+  // letter-spacing: 0.8px;
+}
+.btn-filter-search {
+  border-radius: 5px;
+  padding: 0.45rem 1rem;
+  font-size: 0.75rem;
+  margin-top: -1.5rem;
+
+  background-color: hsl(240, 20%, 42%);
+}
+
+.transaction-search {
+  margin: 2.5rem 1rem 0 0;
+}
+
+.wallets-download-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem 0 0;
+  margin-bottom: 0.875rem;
+}
+
+.download-wallet-btn {
+  button {
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    // background: rgb(14, 133, 245);
+    background: rgb(0, 140, 150);
+    color: #fff;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.dateContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}

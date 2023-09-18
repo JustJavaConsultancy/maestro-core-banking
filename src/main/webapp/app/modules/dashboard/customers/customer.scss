@@ -1,0 +1,37 @@
+.customerDetails {
+  background-color: #f6f6f9;
+  display: flex;
+  font-size: 16px;
+  padding: 24px 40px;
+  border-radius: 12px;
+}
+
+span,
+p,
+div {
+  font-family: 'Poppins', sans-serif;
+}
+.bd {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 24px;
+  color: #565682;
+}
+
+.kyc__btn {
+  border: none;
+  padding: 10px;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  background-color: #3f80c6;
+  margin: 10px 0;
+
+  &:hover {
+    background-color: #035ec0;
+  }
+}
