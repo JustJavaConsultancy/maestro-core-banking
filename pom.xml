@@ -552,7 +552,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>ng.com.systemspecs.apigateway.ApiGatewayApp</mainClass>
+                            <mainClass>ng.com.justjava.corebanking.ApiGatewayApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -662,7 +662,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>ng.com.systemspecs.apigateway.ApiGatewayApp</mainClass>
+                    <mainClass>ng.com.justjava.corebanking.ApiGatewayApp</mainClass>
                 </configuration>
             </plugin>
             <plugin>

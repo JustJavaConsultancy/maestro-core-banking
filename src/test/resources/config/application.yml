@@ -120,14 +120,14 @@ kafka:
       name: queuing.api_gateway.trans
       enabled: false
       '[key.deserializer]': org.apache.kafka.common.serialization.StringDeserializer
-      '[value.deserializer]': ng.com.systemspecs.apigateway.service.kafka.deserializer.TransDeserializer
+      '[value.deserializer]': deserializer.kafka.service.ng.com.justjava.corebanking.TransDeserializer
       '[group.id]': api-gateway
       '[auto.offset.reset]': earliest
     log:
       name: queuing.api_gateway.log
       enabled: false
       '[key.deserializer]': org.apache.kafka.common.serialization.StringDeserializer
-      '[value.deserializer]': ng.com.systemspecs.apigateway.service.kafka.deserializer.LogDeserializer
+      '[value.deserializer]': deserializer.kafka.service.ng.com.justjava.corebanking.LogDeserializer
       '[group.id]': api-gateway
       '[auto.offset.reset]': earliest
   producer:
@@ -135,12 +135,12 @@ kafka:
       name: queuing.api_gateway.trans
       enabled: false
       '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
-      '[value.serializer]': ng.com.systemspecs.apigateway.service.kafka.serializer.TransSerializer
+      '[value.serializer]': serializer.kafka.service.ng.com.justjava.corebanking.TransSerializer
     log:
       name: queuing.api_gateway.log
       enabled: false
       '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
-      '[value.serializer]': ng.com.systemspecs.apigateway.service.kafka.serializer.LogSerializer
+      '[value.serializer]': serializer.kafka.service.ng.com.justjava.corebanking.LogSerializer
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class

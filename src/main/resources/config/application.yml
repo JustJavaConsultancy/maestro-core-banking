@@ -254,35 +254,35 @@ kafka:
       name: queuing.api_gateway.trans
       enabled: true
       '[key.deserializer]': org.apache.kafka.common.serialization.StringDeserializer
-      '[value.deserializer]': ng.com.systemspecs.apigateway.service.kafka.deserializer.TransDeserializer
+      '[value.deserializer]': deserializer.kafka.service.ng.com.justjava.corebanking.TransDeserializer
       '[group.id]': api-gateway
       '[auto.offset.reset]': latest
     notification:
       name: queuing.api_gateway.notification
       enabled: true
       '[key.deserializer]': org.apache.kafka.common.serialization.StringDeserializer
-      '[value.deserializer]': ng.com.systemspecs.apigateway.service.kafka.deserializer.TransDeserializer
+      '[value.deserializer]': deserializer.kafka.service.ng.com.justjava.corebanking.TransDeserializer
       '[group.id]': api-gateway
       '[auto.offset.reset]': latest
     bonus:
       name: queuing.api_gateway.bonus
       enabled: true
       '[key.deserializer]': org.apache.kafka.common.serialization.StringDeserializer
-      '[value.deserializer]': ng.com.systemspecs.apigateway.service.kafka.deserializer.TransDeserializer
+      '[value.deserializer]': deserializer.kafka.service.ng.com.justjava.corebanking.TransDeserializer
       '[group.id]': api-gateway
       '[auto.offset.reset]': latest
     log:
       name: queuing.api_gateway.log
       enabled: true
       '[key.deserializer]': org.apache.kafka.common.serialization.StringDeserializer
-      '[value.deserializer]': ng.com.systemspecs.apigateway.service.kafka.deserializer.LogDeserializer
+      '[value.deserializer]': deserializer.kafka.service.ng.com.justjava.corebanking.LogDeserializer
       '[group.id]': api-gateway
       '[auto.offset.reset]': latest
     callback:
       name: queuing.api_gateway.callback
       enabled: true
       '[key.deserializer]': org.apache.kafka.common.serialization.StringDeserializer
-      '[value.deserializer]': ng.com.systemspecs.apigateway.service.kafka.deserializer.TransDeserializer
+      '[value.deserializer]': deserializer.kafka.service.ng.com.justjava.corebanking.TransDeserializer
       '[group.id]': api-gateway
       '[auto.offset.reset]': latest
   producer:
@@ -290,27 +290,27 @@ kafka:
       name: queuing.api_gateway.trans
       enabled: true
       '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
-      '[value.serializer]': ng.com.systemspecs.apigateway.service.kafka.serializer.TransSerializer
+      '[value.serializer]': serializer.kafka.service.ng.com.justjava.corebanking.TransSerializer
     notification:
       name: queuing.api_gateway.notification
       enabled: true
       '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
-      '[value.serializer]': ng.com.systemspecs.apigateway.service.kafka.serializer.TransSerializer
+      '[value.serializer]': serializer.kafka.service.ng.com.justjava.corebanking.TransSerializer
     bonus:
       name: queuing.api_gateway.bonus
       enabled: true
       '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
-      '[value.serializer]': ng.com.systemspecs.apigateway.service.kafka.serializer.TransSerializer
+      '[value.serializer]': serializer.kafka.service.ng.com.justjava.corebanking.TransSerializer
     log:
       name: queuing.api_gateway.log
       enabled: true
       '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
-      '[value.serializer]': ng.com.systemspecs.apigateway.service.kafka.serializer.LogSerializer
+      '[value.serializer]': serializer.kafka.service.ng.com.justjava.corebanking.LogSerializer
     callback:
       name: queuing.api_gateway.callback
       enabled: true
       '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
-      '[value.serializer]': ng.com.systemspecs.apigateway.service.kafka.serializer.TransSerializer
+      '[value.serializer]': serializer.kafka.service.ng.com.justjava.corebanking.TransSerializer
 
 # ===================================================================
 # Application specific properties
