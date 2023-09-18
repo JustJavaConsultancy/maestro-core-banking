@@ -6,7 +6,7 @@ import ng.com.justjava.corebanking.repository.BillerCustomFieldOptionRepository;
 import ng.com.justjava.corebanking.repository.BillerPlatformRepository;
 import ng.com.justjava.corebanking.repository.BillerRepository;
 import ng.com.justjava.corebanking.service.mapper.BillerMapper;
-import ng.com.systemspecs.apigateway.domain.*;
+import ng.com.justjava.corebanking.domain.*;
 import ng.com.justjava.corebanking.service.BillerCategoryService;
 import ng.com.justjava.corebanking.service.BillerPlatformService;
 import ng.com.justjava.corebanking.service.BillerService;

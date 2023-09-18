@@ -11,7 +11,7 @@ import ng.com.justjava.corebanking.domain.enumeration.AddressType;
 import ng.com.justjava.corebanking.service.LenderService;
 import ng.com.justjava.corebanking.service.ProfileService;
 import ng.com.justjava.corebanking.service.WalletAccountService;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.util.Utility;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

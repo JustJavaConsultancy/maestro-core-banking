@@ -11,7 +11,7 @@ import ng.com.justjava.corebanking.domain.WalletAccount;
 import ng.com.justjava.corebanking.domain.enumeration.AppNotificationType;
 import ng.com.justjava.corebanking.service.AppNotificationService;
 import ng.com.justjava.corebanking.service.WalletAccountService;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.service.fcm.PushNotificationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

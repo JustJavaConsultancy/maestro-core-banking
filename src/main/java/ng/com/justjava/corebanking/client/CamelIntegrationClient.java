@@ -6,7 +6,7 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.service.exception.GenericException;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;

@@ -19,7 +19,7 @@ import ng.com.justjava.corebanking.service.ProfileService;
 import ng.com.justjava.corebanking.service.SchemeService;
 import ng.com.justjava.corebanking.service.UserService;
 import ng.com.justjava.corebanking.service.WalletAccountService;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.util.RemitaCarmelUtils;
 import ng.com.justjava.corebanking.util.Utility;
 import org.apache.commons.codec.digest.DigestUtils;

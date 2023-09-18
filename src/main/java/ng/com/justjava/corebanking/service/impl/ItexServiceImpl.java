@@ -9,7 +9,7 @@ import ng.com.justjava.corebanking.service.ItexService;
 import ng.com.justjava.corebanking.service.ProfileService;
 import ng.com.justjava.corebanking.service.TransactionLogService;
 import ng.com.justjava.corebanking.service.WalletAccountService;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.util.ItexConnectUtils;
 import ng.com.justjava.corebanking.util.Utility;
 import org.springframework.beans.factory.annotation.Value;

@@ -42,7 +42,7 @@ import ng.com.justjava.corebanking.service.dto.SuperAgentMetricsDTO;
 import ng.com.justjava.corebanking.service.dto.WalletAccountDTO;
 import ng.com.justjava.corebanking.service.dto.WalletAccountTypeDTO;
 import ng.com.justjava.corebanking.service.dto.WalletExternalDTO;
-import ng.com.systemspecs.apigateway.service.mapper.WalletAccountMapperImpl;
+import ng.com.justjava.corebanking.service.mapper.WalletAccountMapperImpl;
 import ng.com.justjava.corebanking.util.Utility;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

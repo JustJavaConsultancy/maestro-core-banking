@@ -9,7 +9,7 @@ import ng.com.justjava.corebanking.service.LoanService;
 import ng.com.justjava.corebanking.service.P2VestService;
 import ng.com.justjava.corebanking.service.ProfileService;
 import ng.com.justjava.corebanking.service.dto.*;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.util.P2VestUtil;
 import ng.com.justjava.corebanking.util.Utility;
 import org.springframework.http.HttpMethod;

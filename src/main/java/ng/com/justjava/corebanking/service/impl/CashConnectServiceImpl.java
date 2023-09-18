@@ -14,7 +14,7 @@ import ng.com.justjava.corebanking.service.CashConnectService;
 import ng.com.justjava.corebanking.service.JournalService;
 import ng.com.justjava.corebanking.service.TransactionLogService;
 import ng.com.justjava.corebanking.service.WalletAccountService;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.util.CashConnectUtils;
 import ng.com.justjava.corebanking.util.RemitaCarmelUtils;
 import ng.com.justjava.corebanking.util.Utility;

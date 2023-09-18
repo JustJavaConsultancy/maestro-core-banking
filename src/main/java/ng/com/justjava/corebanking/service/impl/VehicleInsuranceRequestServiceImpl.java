@@ -11,7 +11,7 @@ import ng.com.justjava.corebanking.service.InsuranceService;
 import ng.com.justjava.corebanking.service.ProfileService;
 import ng.com.justjava.corebanking.service.VehicleInsuranceRequestService;
 import ng.com.justjava.corebanking.service.WalletAccountService;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.util.Utility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

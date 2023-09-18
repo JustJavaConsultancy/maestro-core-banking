@@ -6,7 +6,7 @@ import ng.com.justjava.corebanking.service.HealthCheckService;
 import ng.com.justjava.corebanking.service.RITSService;
 import ng.com.justjava.corebanking.service.WalletAccountService;
 import ng.com.justjava.corebanking.service.dto.*;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.util.Utility;
 import ng.com.systemspecs.remitabillinggateway.util.APiResponseCode;
 import ng.com.systemspecs.remitabillinggateway.validate.CustomField;

@@ -2,7 +2,7 @@ package ng.com.justjava.corebanking.client;
 
 import feign.Headers;
 import ng.com.justjava.corebanking.service.dto.*;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

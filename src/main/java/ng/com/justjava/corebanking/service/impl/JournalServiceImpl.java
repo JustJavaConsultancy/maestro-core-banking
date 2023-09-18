@@ -14,7 +14,7 @@ import ng.com.justjava.corebanking.service.JournalLineService;
 import ng.com.justjava.corebanking.service.JournalService;
 import ng.com.justjava.corebanking.service.TransactionLogService;
 import ng.com.justjava.corebanking.service.WalletAccountService;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

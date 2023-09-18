@@ -16,7 +16,7 @@ import ng.com.justjava.corebanking.service.LibertyAssuredService;
 import ng.com.justjava.corebanking.service.LoanService;
 import ng.com.justjava.corebanking.service.ProfileService;
 import ng.com.justjava.corebanking.service.WalletAccountService;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.util.Utility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

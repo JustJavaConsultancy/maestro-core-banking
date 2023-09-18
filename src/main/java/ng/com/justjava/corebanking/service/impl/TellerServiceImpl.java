@@ -11,7 +11,7 @@ import ng.com.justjava.corebanking.service.AgentService;
 import ng.com.justjava.corebanking.service.ProfileService;
 import ng.com.justjava.corebanking.service.TellerService;
 import ng.com.justjava.corebanking.service.WalletAccountService;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.util.Utility;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;

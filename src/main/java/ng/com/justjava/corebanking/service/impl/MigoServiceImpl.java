@@ -3,7 +3,7 @@ package ng.com.justjava.corebanking.service.impl;
 import com.google.gson.Gson;
 import ng.com.justjava.corebanking.service.MigoService;
 import ng.com.justjava.corebanking.service.dto.*;
-import ng.com.systemspecs.apigateway.service.dto.*;
+import ng.com.justjava.corebanking.service.dto.*;
 import ng.com.justjava.corebanking.util.MigoUtils;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
